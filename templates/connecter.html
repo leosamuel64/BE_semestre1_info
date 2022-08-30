@@ -1,0 +1,50 @@
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Se connecter</h2>
+          <ol>
+            <li><a href="index.html">Accueil</a></li>
+            <li>Se connecter</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <section class="inner-page">
+      <div class="container">
+        <p>
+          Se connecter
+        </p>
+      </div>
+    </section>
+
+    <form class="w-75 mx-auto pt-3 pb-3" action="/connect" method="POST">
+      <h3 class="mx-auto w-100 "><i class="fa-solid fa-user"></i> Authentification des utilisateurs</h3>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <input class="form-control" type="text" name="login" id="login" placeholder="Votre Login" required />
+
+          </div>
+          <div class="col-6">
+            <input class="form-control" type="password" name="pwd" id="pwd" placeholder="Votre mot de passe" required />
+
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <button class="btn btn-outline-info mx-auto w-100" type="submit" name='action' value="connect">Se connecter</button>
+      <br>
+      <br>
+      <button class="btn btn-link  mx-auto w-100" type="submit" name='action' value="add">Créer un compte</button>
+    </form>
+
+  </main><!-- End #main -->
+
+  

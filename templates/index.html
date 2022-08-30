@@ -1,0 +1,147 @@
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url('static/img/slide/slide-4.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown">Gestion des Vols</h2>
+                <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}}</p>
+                <!-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url('static/img/slide/slide-5.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown">Gestion des Vols</h2>
+                <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}}</p>
+                <!-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url('static/img/slide/slide-6.jpg');">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown">Gestion des Vols</h2>
+                <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}}</p>
+                <!-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="carousel-item" style="background-image: url('static/img/slide/slide-7.png');">
+            <div class="carousel-container">
+              <div class="carousel-content container">
+                <h2 class="animate__animated animate__fadeInDown">Gestion des Vols</h2>
+                <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}}</p>
+                <!-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Tableau vols ======= -->
+    <section id="tableau_vols">
+      <!-- <section id="tableau_vols" class="about"> -->
+      <div class="container" data-aos="fade-up">
+
+        <!-- <div class="row no-gutters">
+          <div class="col-lg-6 video-box">
+            <img src="static/img/about.jpg" class="img-fluid" alt="">
+            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
+              data-autoplay="true"></a>
+          </div>
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+
+            <div class="section-title">
+              <h2>About Us</h2>
+              <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="bx bx-fingerprint"></i></div>
+              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
+                occaecati cupiditate non provident</p>
+            </div>
+
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="bx bx-gift"></i></div>
+              <h4 class="title"><a href="">Nemo Enim</a></h4>
+              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                praesentium voluptatum deleniti atque</p>
+            </div>
+
+          </div>
+        </div> -->
+        <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+
+          <div class="section-title">
+            <h3>Nos Vols</h3>
+          </div>
+        </div>
+        <div>
+          
+          <table class="table text=centered mx-auto w-100">
+            <tbody>
+              <tr>
+                <td class="text-center"><i class="fa-solid fa-flag-checkered fa-2x"></i><br> Indicatif</td>
+                <td class="text-center"><i class="fa-solid fa-plane-departure fa-2x"></i><br>OACI Départ</td>
+                <td class="text-center"><i class="fa-solid fa-plane-arrival fa-2x"></i><br>OACI Arrivée</td>
+                <td class="text-center"><i class="fa-regular fa-clock fa-2x"></i><br> Heure Départ</td>
+                <td class="text-center"><i class="fa-solid fa-clock fa-2x"></i><br> Heure Arrivée</td>
+              </tr>
+              
+              {% for vol in vols%}
+                <tr>
+                {% for item in vol%}
+                  <td class="text-center">{{item}}</td>
+                {% endfor%}
+                </tr>
+              {% endfor%}
+            </tbody>
+          </table>
+
+
+
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->

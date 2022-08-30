@@ -1,0 +1,444 @@
+LFOI  -35      145      ABBEVILLE                
+LFBA  -139     -517     AGEN La Garenne          
+LFDA  -207     -567     AIRE SUR L'ADOUR         
+LFMA  245      -589     AIX Les Milles           
+LFKJ  537      -748     AJACCIO Campo dell'Oro   
+LFAQ  25       126      ALBERT Bray              
+LFKA  311      -348     ALBERTVILLE              
+LFCI  -17      -547     ALBI Le Sequestre        
+LFOF  -164     -40      ALENCON Valframbert      
+LFMS  145      -528     ALES Deaux               
+LFXA  232      -313     AMBERIEU                 
+LFHT  110      -368     AMBERT Le Poyet          
+LFEF  -104     -165     AMBOISE Dierre           
+LFAY  4        	115     AMIENS Glisy             
+LFFI  -265     -153     ANCENIS                  
+LFCD  -268     -448     ANDERNOS LES BAINS       
+LFJR  -198     -138     ANGERS Marce             
+LFBU  -164     -343     ANGOULEME Brie Champniers
+LFLP  292      -316     ANNECY Meythet           
+LFLI  303      -286     ANNEMASSE                
+LFGD  260      -207     ARBOIS                   
+LFCH  -273     -465     ARCACHON La Teste de Buch
+LFAJ  -171     -11      ARGENTAN                 
+LFEG  -55      -248     ARGENTON SUR CREUSE      
+LFQD  33       166      ARRAS Roclincourt        
+LFNJ  270      -474     ASPRES SUR BUECH         
+LFHO  162      -475     AUBENAS Vals Lanas       
+LFEH  4        -151     AUBIGNY SUR NERE         
+LFDH  -139     -571     AUCH Lamothe             
+LFLW  6        -438     AURILLAC                 
+LFQF  146      -205     AUTUN Bellevue           
+LFLA  87       -109     AUXERRE Branches         
+LFGE  117      -146     AVALLON                  
+LFMV  206      -545     AVIGNON Caumont          
+LFNT  194      -535     AVIGNON Pujaut           
+LFOA  23       -197     AVORD                    
+LFRW  -274     -12      AVRANCHES Le Val Saint Pe
+LFCB  -141     -670     BAGNERES DE LUCHON       
+LFAO  -200     -28      BAGNOLES DE L'ORNE       
+LFFL  -51      -35      BAILLEAU ARMENONVILLE    
+LFSB  390      -125     BALE MULHOUSE            
+LFMR  340      -485     BARCELONNETTE Saint Pons 
+LFEU  208      7        BAR LE DUC Les Hauts de C
+LFFR  154      -83      BAR SUR SEINE            
+LFKB  587      -673     BASTIA Poretta           
+LFGF  194      -199     BEAUNE Challanges        
+LFOB  -15      69       BEAUVAIS Tille           
+LFNX  65       -578     BEDARIEUX La Tour sur Orb
+LFGG  336      -115     BELFORT Chaux            
+LFSQ  350      -120     BELFORT Fontaine         
+LFHN  268      -295     BELLEGARDE Vouvray       
+LFEA  -417     -152     BELLE ILE                
+LFHW  183      -296     BELLEVILLE Villie Morgon 
+LFKY  261      -343     BELLEY Peyrieu           
+LFIB  -108     -450     BELVES Saint Pardoux     
+LFAM  -52      177      BERCK SUR MER            
+LFBE  -143     -444     BERGERAC Roumaniere      
+LFPD  -128     31       BERNAY Saint Martin      
+LFNR  230      -585     BERRE La Fare            
+LFQM  283      -174     BESANCON La Veze         
+LFSA  283      -166     BESANCON Thise           
+LFPF  -31      1        BEYNES Thiverval         
+LFMU  82       -613     BEZIERS Vias             
+LFBZ  -312     -589     BIARRITZ BAYONNE Anglet  
+LFBS  -275     -491     BISCARROSSE-Parentis     
+LFOQ  -84      -127     BLOIS Le Breuil          
+LFBD  -240     -441     BORDEAUX Merignac        
+LFCS  -231     -455     BORDEAUX Leognan Saucats 
+LFDO  -247     -438     BORDEAUX-Souge           
+LFDY  -222     -436     BORDEAUX Yvrac           
+LFHS  228      -288     BOURG Ceyzeriat          
+LFLD  3        -196     BOURGES                  
+LFRB  -498     -20      BREST Guipavas           
+LFPY  0        -26      BRETIGNY SUR ORGE        
+LFEI  33       -135     BRIARE Chatillon         
+LFFN  157      -42      BRIENNE LE CHATEAU       
+LFHR  80       -390     BRIOUDE Beaumont         
+LFBV  -67      -409     BRIVE La Roche           
+LFYH  240      -163     BROYE LES PESMES         
+LFFB  6        -53      BUNO BONNEVAUX           
+LFRK  -202     41       CAEN Carpiquet           
+LFCC  -68      -498     CAHORS Lalbenque         
+LFAC  -26      237      CALAIS DUNKERQUE         
+LFKC  531      -681     CALVI Sainte Catherine   
+LFQI  58       154      CAMBRAI Epinoy           
+LFYG  66       146      CAMBRAI Niergnies        
+LFMD  373      -577     CANNES Mandelieu         
+LFMK  -1       -625     CARCASSONNE Salvaza      
+LFNH  221      -531     CARPENTRAS               
+LFIG  14       -518     CASSAGNES BEGONHES       
+LFMW  -33      -614     CASTELNAUDARY Villeneuve 
+LFDQ  96       -617     CASTELNAU MAGNOAC        
+LFCX  -96      -527     CASTELSARRASIN Moissac   
+LFCK  -3       -587     CASTRES Mazamet          
+LFBC  -275     -472     CAZAUX                   
+LFIH  -181     -394     CHALAIS                  
+LFLH  189      -220     CHALON Champforgeuil     
+LFQK  147      10       CHALONS Ecury sur Coole  
+LFOK  136      -4       CHALONS Vatry            
+LFLB  276      -349     CHAMBERY Aix les Bains   
+LFLE  284      -357     CHAMBERY Challes les Eaux
+LFGX  265      -224     CHAMPAGNOLE Crotenay     
+LFQV  166      108      CHARLEVILLE MEZIERES     
+LFOR  -59      -41      CHARTRES Champhol        
+LFMX  293      -524     CHATEAU ARNOUX Saint Auba
+LFOC  -70      -85      CHATEAUDUN               
+LFFU  3        -218     CHATEAUNEUF SUR CHER     
+LFLX  -46      -219     CHATEAUROUX Deols        
+LFEJ  -54      -221     CHATEAUROUX Villers      
+LFFH  74       26       CHATEAU THIERRY Belleau  
+LFCA  -135     -226     CHATELLERAULT Targe      
+LFQH  167      -107     CHATILLON SUR SEINE      
+LFSY  209      -80      CHAUMONT La Vendue       
+LFDW  -129     -249     CHAUVIGNY                
+LFPX  -25      1        CHAVENAY Villepreux      
+LFPH  20       7        CHELLES Le Pin           
+LFRC  -274     98       CHERBOURG Maupertus      
+LFOU  -243     -189     CHOLET Le Pontreau       
+LFLC  64       -338     CLERMONT FERRAND Aulnat  
+LFBG  -206     -350     COGNAC Chateaubernard    
+LFGA  373      -68      COLMAR Houssen           
+LFSC  377      -88      COLMAR Meyenheim         
+LFAD  34       67       COMPIEGNE Margny         
+LFDZ  -87      -414     CONDAT SUR VEZERE        
+LFAN  -207     10       CONDE SUR NOIREAU        
+LFID  -156     -545     CONDOM Valence sur Baise 
+LFNI  127      -543     CONQUEYRAC               
+LFKT  566      -704     CORTE                    
+LFGH  44       -163     COSNE SUR LOIRE          
+LFDV  -164     -282     COUHE Verac              
+LFPK  50       1        COULOMMIERS Voisins      
+LFLJ  336      -373     COURCHEVEL               
+LFPC  13       46       CREIL                    
+LFTF  308      -614     CUERS Pierrefeu          
+LFYD  247      -78      DAMBLAIN                 
+LFBY  -274     -566     DAX Seyresse             
+LFRG  -157     61       DEAUVILLE Saint Gatien   
+LFAB  -89      117      DIEPPE Saint Aubin       
+LFPO  3        -12      PARIS Orly               
+LFQZ  321      2        DIEUZE Gueblange         
+LFSD  208      -170     DIJON Longvic            
+LFGI  197      -157     DIJON Darois             
+LFEB  -327     -33      DINAN Trelivan           
+LFRD  -324     -17      DINARD Pleurtuit Saint MA
+LFGJ  235      -194     DOLE Tavaux              
+LFGR  262      41       DONCOURT LES CONFLANS    
+LFON  -71      -13      DREUX Vernouillet        
+LFAK  15       245      DUNKERQUE Ghyvelde       
+LFDE  -20      -379     EGLETONS                 
+LFFE  1        23       ENGHIEN Moisselles       
+LFSW  128      20       EPERNAY Plivot           
+LFSE  305      -60      EPINAL Dogneville        
+LFSG  276      -50      EPINAL Mirecourt         
+LFQE  243      49       ETAIN Rouvres            
+LFOX  -19      -50      ETAMPES Mondesir         
+LFFY  -50      52       ETREPAGNY                
+LFAE  -64      138      EU Mers Le Treport       
+LFOE  -81      22       EVREUX Fauville          
+LFAS  -181     13       FALAISE Mont d'Eraines   
+LFMF  352      -572     FAYENCE                  
+LFLZ  145      -346     FEURS Chambeon           
+LFKF  565      -793     FIGARI SUD CORSE         
+LFCF  -43      -463     FIGEAC Livernon          
+LFOG  -214     -4       FLERS Saint Paul         
+LFNO  90       -505     FLORAC Sainte Enimie     
+LFFK  -239     -261     FONTENAY LE COMTE        
+LFPQ  41       -13      FONTENAY TRESIGNY        
+LFTU  356      -593     FREJUS Saint Raphael     
+LFDX  -105     -485     FUMEL Montayral          
+LFDG  -36      -551     GAILLAC Lisle sur Tarn   
+LFNA  294      -480     GAP Tallard              
+LFKG  585      -729     GHISONACCIA Alzitone     
+LFRF  -284     12       GRANVILLE                
+LFCQ  -26      -563     GRAULHET Montdragon      
+LFEV  247      -150     GRAY Saint Adrien        
+LFLG  275      -396     GRENOBLE Le Versoud      
+LFLS  234      -381     GRENOBLE Saint Geoirs    
+LFCE  -28      -295     GUERET Saint Laurent     
+LFES  -445     -69      GUISCRIFF Scaer          
+LFSH  402      10       HAGUENAU                 
+LFTH  310      -631     HYERES Le Palyvestre     
+LFEY  -360     -224     ILE D'YEU Le Grand Phare 
+LFHA  72       -369     ISSOIRE Le Broc          
+LFEK  -22      -216     ISSOUDUN Le Fay          
+LFMI  209      -588     ISTRES Le Tube           
+LFIX  -304     -605     ITXASSOU                 
+LFGK  78       -92      JOIGNY                   
+LFFJ  207      -45      JOINVILLE Mussey         
+LFCJ  -215     -369     JONZAC Neulles           
+LFQX  184      -76      JUVANCOURT               
+LFRE  -353     -161     LA BAULE ESCOUBLAC       
+LFFG  69       -8       LA FERTE GAUCHER         
+LFAL  -174     -124     LA FLECHE Thoree Les Pins
+LFTN  134      -509     LA GRAND'COMBE           
+LFOL  -122     -6       L'AIGLE Saint Michel     
+LFTZ  337      -618     LA MOLE                  
+LFMG  -27      -604     LA MONTAGNE NOIRE        
+LFFM  -25      -130     LAMOTTE BEUVRON          
+LFRJ  -477     -13      LANDIVISIAU              
+LFHL  123      -458     LANGOGNE Lesperon        
+LFRO  -425     7        LANNION                  
+LFRL  -501     -39      LANVEOC Poulmic          
+LFAF  93       85       LAON Chambry             
+LFHX  96       -286     LAPALISSE Perigny        
+LFDR  -189     -472     LA REOLE Floudes         
+LFBH  -271     -289     LA ROCHELLE Laleu        
+LFRI  -283     -230     LA ROCHE SUR YON Les Ajon
+LFKP  238      -359     LA TOUR DU PIN Cessieu   
+LFOV  -228     -84      LAVAL Entrammes          
+LFEL  -95      -245     LE BLANC                 
+LFMQ  280      -615     LE CASTELLET             
+LFOH  -162     80       LE HAVRE Octeville       
+LFOY  -142     81       LE HAVRE Saint Romain    
+LFMC  328      -598     LE LUC Le Cannet         
+LFRM  -158     -96      LE MANS Arnage           
+LFNZ  206      -560     LE MAZET DE ROMANIN      
+LFQL  34       182      LENS Benifontaine        
+LFPP  29       30       LE PLESSIS BELLEVILLE    
+LFHP  112      -416     LE PUY Loudes            
+LFXU  -28      18       LES MUREAUX              
+LFDU  -252     -399     LESPARRE Saint Laurent Me
+LFOO  -310     -254     LES SABLES D'OLONNE Talmo
+LFOM  -279     48       LESSAY                   
+LFAT  -49      187      LE TOUQUET PARIS PLAGE   
+LFMZ  32       -630     LEZIGNAN CORBIERES       
+LFDI  -194     -425     LIBOURNE Artigues de Luss
+LFQQ  53       192      LILLE Lesquin            
+LFQO  52       206      LILLE Marcq en Baroeul   
+LFBL  -89      -330     LIMOGES Bellegarde       
+LFPL  21       -1       LOGNES Emerainville      
+LFGS  234      77       LONGUYON Villette        
+LFGL  239      -235     LONS LE SAUNIER Courlaoux
+LFRH  -431     -103     LORIENT Lann Bihoue      
+LFDL  -169     -197     LOUDUN                   
+LFQC  309      -17      LUNEVILLE Croismare      
+LFYL  315      -116     LURE Malbouhans          
+LFSX  301      -108     LUXEUIL Saint Sauveur    
+LFKL  183      -344     LYON Brindas             
+LFLY  202      -342     LYON Bron                
+LFHJ  200      -350     LYON Corbas              
+LFLL  213      -342     LYON Saint Exupery       
+LFLM  189      -279     MACON Charnay            
+LFFC  -46      27       MANTES Cherence          
+LFTB  233      -595     MARIGNANE Berre          
+LFYM  110      -18      MARIGNY LE GRAND         
+LFDM  -169     -480     MARMANDE Virazeil        
+LFML  233      -596     MARSEILLE Provence       
+LFQJ  120      165      MAUBEUGE Elesmes         
+LFPE  36       10       MEAUX Esbly              
+LFPM  24       -25      MELUN Villaroche         
+LFNB  95       -481     MENDE Brenoux            
+LFQT  22       199      MERVILLE Calonne         
+LFSF  277      33       METZ Frescaty            
+LFCM  68       -539     MILLAU Larzac            
+LFCZ  -279     -515     MIMIZAN                  
+LFFW  -278     -204     MONTAIGU Saint Georges   
+LFEM  26       -97      MONTARGIS Vimory         
+LFDB  -76      -534     MONTAUBAN                
+LFGM  153      -246     MONTCEAU LES MINES Pouill
+LFNC  337      -450     MONT DAUPHIN Saint Crepin
+LFBM  -228     -543     MONT DE MARSAN           
+LFAR  17       93       MONTDIDIER               
+LFLQ  191      -470     MONTELIMAR Ancone        
+LFDC  -218     -392     MONTENDRE Marcillac      
+LFNQ  -17      -700     MONT LOUIS La Quillane   
+LFLT  18       -276     MONTLUCON Domerat        
+LFBK  2        -290     MONTLUCON GUERET         
+LFMT  131      -583     MONTPELLIER Frejorgues   
+LFNG  140      -580     MONTPELLIER candillargues
+LFHI  242      -345     MORESTEL                 
+LFPU  34       -54      MORET Episy              
+LFRU  -452     -7       MORLAIX Ploujean         
+LFAX  -132     -31      MORTAGNE AU PERCHE       
+LFHY  83       -255     MOULINS Montbeugny       
+LFXM  148      33       MOURMELON                
+LFGB  381      -109     MULHOUSE Habsheim        
+LFBR  -86      -599     MURET Lherm              
+LFEX  287      -19      NANCY Azelot             
+LFSN  286      -8       NANCY Essey              
+LFEZ  284      -4       NANCY Malzeville         
+LFSO  266      -21      NANCY-Ochey              
+LFAI  50       -26      NANGIS Les Loges         
+LFRS  -298     -178     NANTES ATLANTIQUE        
+LFFT  250      -46      NEUFCHATEAU Rouceux      
+LFQG  59       -203     NEVERS Fourchambault     
+LFMN  393      -563     NICE Cote d'Azur         
+LFME  167      -552     NIMES Courbessac         
+LFTW  167      -563     NIMES Garons             
+LFBN  -209     -276     NIORT Souche             
+LFCN  -190     -561     NOGARO                   
+LFGZ  199      -184     NUITS SAINT GEORGES      
+LFCO  -235     -627     OLORON Herrere           
+LFMO  202      -519     ORANGE Caritat           
+LFOJ  -42      -94      ORLEANS Bricy            
+LFOZ  -12      -104     ORLEANS Saint Denis de l'
+LFEC  -545     -14      OUESSANT                 
+LFLK  256      -278     OYONNAX Arbent           
+LFDJ  -51      -639     PAMIERS Les Pujols       
+LFGN  138      -261     PARAY LE MONIAL          
+LFPG  14       19       PARIS CHARLES DE GAULLE  
+LFPI  -4       0        PARIS-Issy les Moulineaux
+LFPB  8        15       PARIS Le Bourget         
+LFBP  -223     -603     PAU PYRENEES             
+LFBX  -119     -403     PERIGUEUX Bassillac      
+LFAG  49       115      PERONNE SAINT QUENTIN    
+LFHC  221      -325     PEROUGES Meximieux       
+LFMP  44       -678     PERPIGNAN Rivesaltes     
+LFPA  -1       37       PERSAN BEAUMONT          
+LFNP  87       -592     PEZENAS Nizas            
+LFQP  357      4        PHALSBOURG Bourscheid    
+LFHD  189      -490     PIERRELATTE              
+LFFP  -10      -75      PITHIVIERS               
+LFRP  -350     -81      PLOERMEL Loyat           
+LFBI  -154     -247     POITIERS Biard           
+LFCP  -222     -359     PONS Avy                 
+LFSP  303      -206     PONTARLIER               
+LFED  -390     -72      PONTIVY                  
+LFPT  -21      29       PONTOISE Cormeilles en Ve
+LFND  185      -505     PONT SAINT ESPRIT        
+LFSV  273      -19      PONT SAINT VINCENT       
+LFGO  67       -59      PONT SUR YONNE           
+LFEP  168      -176     POUILLY Maconge          
+LFKO  547      -777     PROPRIANO Tavaria        
+LFNW  -22      -659     PUIVERT                  
+LFEQ  -408     -135     QUIBERON                 
+LFRQ  -484     -74      QUIMPER Pluguffan        
+LFER  -327     -116     REDON Bains sur Oust     
+LFSR  124      54       REIMS Champagne          
+LFQA  132      43       REIMS Prunay             
+LFRN  -302     -76      RENNES Saint Jacques     
+LFAP  146      74       RETHEL Perthes           
+LFIR  -28      -596     REVEL Montgey            
+LFIK  -162     -397     RIBERAC Saint Aulaye     
+LFIL  -263     -542     RION DES LANDES          
+LFLO  128      -308     ROANNE-Renaison          
+LFDN  -256     -322     ROCHEFORT Saint Agnant   
+LFCR  12       -492     RODEZ Marcillac          
+LFSU  220      -92      LANGRES ROLAMPONT        
+LFHE  218      -415     ROMANS Saint Paul        
+LFQR  105      -36      ROMILLY SUR SEINE        
+LFYR  -48      -168     ROMORANTIN Pruniers      
+LFOP  -83      62       ROUEN VALLEE DE SEINE    
+LFCY  -257     -350     ROYAN Medis              
+LFHF  159      -486     RUOMS                    
+LFIF  33       -557     SAINT AFFRIQUE Belmont   
+LFFD  -79      7        SAINT ANDRE DE L'EURE    
+LFRT  -382     -19      SAINT BRIEUC Armor       
+LFHG  172      -369     SAINT CHAMOND L'Horme    
+LFKZ  264      -266     SAINT CLAUDE Pratz       
+LFPZ  -18      -2       SAINT CYR L'ECOLE        
+LFGY  346      -52      SAINT DIE Remomeix       
+LFSI  189      -18      SAINT DIZIER-Robinson    
+LFDF  -170     -440     SAINTE FOY LA GRANDE     
+LFYS  -26      -711     SAINTE LEOCADIE          
+LFXB  -230     -344     SAINTES Thenac           
+LFMH  153      -365     SAINT ETIENNE Boutheon   
+LFGP  107      -93      SAINT FLORENTIN Cheu     
+LFHQ  51       -418     SAINT FLOUR Coltines     
+LFKM  153      -357     SAINT GALMIER            
+LFIM  -139     -636     SAINT GAUDENS Montrejeau 
+LFCG  -100     -648     SAINT GIRONS Antichan    
+LFIY  -221     -315     SAINT JEAN D'ANGELY      
+LFKH  261      -363     SAINT JEAN D'AVELANNE    
+LFKE  234      -419     SAINT JEAN EN ROYANS     
+LFBJ  -109     -325     SAINT JUNIEN             
+LFNL  116      -559     SAINT MARTIN DE LONDRES  
+LFEO  -316     -15      SAINT MALO Saint Servan  
+LFRZ  -338     -159     SAINT NAZAIRE Montoir    
+LFQN  -6       211      SAINT OMER Wizernes      
+LFDP  -282     -313     SAINT PIERRE D'OLERON    
+LFOW  62       109      SAINT QUENTIN Roupy      
+LFLR  195      -395     SAINT RAMBERT D'ALBON    
+LFYT  63       102      SAINT SIMON Clastres     
+LFOS  -120     113      SAINT VALERY Vittefleur  
+LFLN  129      -268     SAINT YAN                
+LFHZ  333      -311     SALLANCHES Mont Blanc    
+LFMY  224      -578     SALON                    
+LFNE  216      -572     SALON Eyguieres          
+LFDS  -86      -449     SARLAT Domme             
+LFGT  348      -1       SARREBOURG Buhl          
+LFGU  347      43       SARREGUEMINES Neunkirch  
+LFQU  346      24       SARRE UNION              
+LFEW  146      -175     SAULIEU Liernais         
+LFOD  -184     -172     SAUMUR Saint Florent     
+LFQY  373      3        SAVERNE Steinbourg       
+LFGQ  151      -148     SEMUR EN AUXOIS          
+LFFZ  105      -12      SEZANNE Saint Remy       
+LFNS  287      -499     SISTERON Theze           
+LFKS  587      -743     SOLENZARA                
+LFKD  350      -388     SOLLIERES SARDIERES      
+LFDK  -266     -365     SOULAC SUR MER           
+LFST  390      -18      STRASBOURG Entzheim      
+LFGC  400      -16      STRASBOURG Neuhof        
+LFNU  165      -526     UZES                     
+LFLU  208      -432     VALENCE Chabeuil         
+LFAV  80       166      VALENCIENNES Denain      
+LFNV  205      -497     VALREAS Visan            
+LFRV  -378     -111     VANNES Meucon            
+LFAU  -300     96       VAUVILLE                 
+LFIV  -269     -378     VENDAYS MONTALIVET       
+LFGW  228      37       VERDUN Le Rozelier       
+LFQW  290      -125     VESOUL Frotey            
+LFLV  82       -295     VICHY Charmeil           
+LFHH  195      -371     VIENNE Reventin          
+LFFV  -20      -182     VIERZON Mereau           
+LFPV  -10      -6       VILLACOUBLAY Velizy      
+LFCV  -24      -497     VILLEFRANCHE DE ROUERGUE 
+LFHV  178      -321     VILLEFRANCHE Tarare      
+LFCW  -125     -492     VILLENEUVE SUR LOT       
+LFAW  257      70       VILLERUPT                
+LFNF  278      -561     VINON                    
+LFQS  46       167      VITRY EN ARTOIS          
+LFSK  172      -11      VITRY LE FRANCOIS Vaucler
+LFSZ  267      -62      VITTEL Champ de Courses  
+LFDT  -183     -623     TARBES Laloubere         
+LFBT  -189     -626     TARBES Ossun LOURDES     
+LFGV  280      65       THIONVILLE Yutz          
+LFCT  -188     -205     THOUARS                  
+LFET  216      -139     TIL CHATEL               
+LFFO  127      -117     TONNERRE-Moulins         
+LFSL  267      1        TOUL Rosieres            
+LFBO  -76      -579     TOULOUSE Blagnac         
+LFIT  -49      -581     TOULOUSE Bourg Saint Bern
+LFBF  -78      -588     TOULOUSE Francazal       
+LFCL  -67      -583     TOULOUSE Lasbordes       
+LFIO  -68      -586     TOULOUSE Montaudran      
+LFFX  202      -249     TOURNUS Cuisery          
+LFOT  -121     -154     TOURS Saint Symphorien   
+LFEN  -123     -172     TOURS Sorigny            
+LFPN  -16      -9       TOUSSUS LE NOBLE         
+LFQB  124      -55      TROYES Barberey          
+LFCU  7        -367     USSEL Thalamy            
+LFXR  -256     -317     ROCHEFORT Soubise        
+LFSJ  194      95       SEDAN Douzy              
+LFFQ  0        -37      LA FERTE ALAIS           
+LFSM  335      -140     MONTBELIARD Courcelles   
+LFTP  308      -545     PUIMOISSON               
+LFTQ  -263     -115     CHATEAUBRIANT Pouance    
+LFJS  68       57       SOISSONS Courmelles      
+LFJL  285      23       METZ NANCY LORRAINE      
+LFJT  -122     -186     TOURS Le LOUROUX         
+LFJC  88       -154     CLAMECY                  
+LFPR  -19      -7       GUYANCOURT               
+LFHB  75       -249     Moulins / Avernes (Ville)

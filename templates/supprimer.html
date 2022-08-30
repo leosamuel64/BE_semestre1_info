@@ -1,0 +1,72 @@
+{%if session.user==''%}
+            <div><i class="fa-solid fa-triangle-exclamation"></i>Page interdite<i class="fa-solid fa-triangle-exclamation"></i></div>
+{%else%}
+
+<main id="main">
+  <!-- ======= Breadcrumbs Section ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Supprimer</h2>
+        <ol>
+          <li>
+            <a href="index.html">Accueil</a>
+          </li>
+          <li>Supprimer</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <!-- End Breadcrumbs Section -->
+  <section class="inner-page">
+    <div class="container">
+      <h3>Supprimer un vol</h3>
+    </div>
+  </section>
+  <table class="table text=centered mx-auto w-100">
+    <tbody>
+      <tr>
+        <td class="text-center">
+          <br>
+          Supp
+        </td>
+        <td class="text-center">
+          <i class="fa-solid fa-flag-checkered fa-2x"></i>
+          <br>
+          Indicatif
+        </td>
+        <td class="text-center">
+          <i class="fa-solid fa-plane-departure fa-2x"></i>
+          <br>
+          OACI Départ
+        </td>
+        <td class="text-center">
+          <i class="fa-solid fa-plane-arrival fa-2x"></i>
+          <br>
+          OACI Arrivée
+        </td>
+        <td class="text-center">
+          <i class="fa-regular fa-clock fa-2x"></i>
+          <br>
+          Heure Départ
+        </td>
+        <td class="text-center">
+          <i class="fa-solid fa-clock fa-2x"></i>
+          <br>
+          Heure Arrivée
+        </td>
+      </tr>
+      {% for vol in vols %}
+        <tr>
+          <td class="text-center">
+            <a href=/supprimer.html/'{{loop.index}}'> <i class="fa-solid fa-trash fa-2x"></i></a>
+          </td>
+          {% for item in vol %}<td class="text-center">{{ item }}</td>{% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</main>
+<!-- End #main -->
+
+{%endif%}
