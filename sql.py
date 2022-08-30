@@ -28,6 +28,4 @@ def add_user(login,password):
     cursor = connection.execute(request)
     connection.commit()
     connection.close()
-    
-add_user('admin','admin')
-    
+        

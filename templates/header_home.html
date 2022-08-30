@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>GSEA - Accueil</title>
+    <title>{{page_name}}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
     <!-- Favicons -->
@@ -56,13 +56,12 @@
       <div class="container d-flex align-items-center">
         <div class="logo me-auto">
           <h1>
-            <a href="index.html">GSEA</a>
+            <a href="index.html">YAM'S !</a>
           </h1>
           <!-- Uncomment below if you prefer to use an image logo -->
           <!-- <a href="index.html"><img src="static/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
         
-        {%if not session.user==''%}
 
         <nav id="navbar" class="navbar">
           <ul>
@@ -70,48 +69,18 @@
               <a class="nav-link scrollto active" href="/">Accueil</a>
             </li>
             <li>
-              <a class="nav-link scrollto" href="#tableau_vols">Afficher</a>
-            </li>
-            <li class="dropdown">
-              <a href="#"><span>Gestion des vols</span> <i class="bi bi-chevron-down"></i></a>
-              <ul>
-                <li>
-                  <a href="ajouter.html">Ajouter</a>
-                </li>
-                <li>
-                  <a href="supprimer.html">Supprimer</a>
-                </li>
-                <li>
-                  <a href="modifier.html">Modifier</a>
-                </li>
-              </ul>
-            </li>
-            {%if session.user==''%}
-            <li>
-              <a class="nav-link scrollto" href="connecter.html">Se connecter</a>
-            </li>
-            {%endif%}
-            <li>
-              <a class="nav-link scrollto" href="contact.html">Contact</a>
+              <a href="regles.html">Règles</a>
             </li>
             <li>
-              <a class="nav-link scrollto" href="deco.html">Déconnexion</a>
+              <a href="jouer.html">Jouer</a>
+            </li>
+            <li>
+              <a href="scores.html">Scores</a>
             </li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
-        
-        {%endif%}
-        {%if session.user==''%}
-        <nav id="navbar" class="navbar">
-          <ul>
-        <li>
-          <a class="nav-link scrollto" href="connecter.html">Se connecter</a>
-        </li>
-      </ul>
-      <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav>
-    {%endif%}
+      
         <!-- .navbar -->
       </div>
     </header>

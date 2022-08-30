@@ -10,10 +10,10 @@
         <div class="carousel-inner" role="listbox">
 
           <!-- Slide 1 -->
-          <div class="carousel-item active" style="background-image: url('static/img/slide/slide-4.jpg');">
+          <div class="carousel-item active" style="background-image: url('static/img/slide/slide-1.jpg');">
             <div class="carousel-container">
               <div class="carousel-content container">
-                <h2 class="animate__animated animate__fadeInDown">Gestion des Vols</h2>
+                <h2 class="animate__animated animate__fadeInDown">Yam's</h2>
                 <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}}</p>
                 <!-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> -->
               </div>
@@ -21,10 +21,10 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background-image: url('static/img/slide/slide-5.jpg');">
+          <div class="carousel-item" style="background-image: url('static/img/slide/slide-2.jpg');">
             <div class="carousel-container">
               <div class="carousel-content container">
-                <h2 class="animate__animated animate__fadeInDown">Gestion des Vols</h2>
+                <h2 class="animate__animated animate__fadeInDown">Yam's</h2>
                 <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}}</p>
                 <!-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> -->
               </div>
@@ -32,10 +32,10 @@
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background-image: url('static/img/slide/slide-6.jpg');">
+          <div class="carousel-item" style="background-image: url('static/img/slide/slide-3.jpg');">
             <div class="carousel-container">
               <div class="carousel-content container">
-                <h2 class="animate__animated animate__fadeInDown">Gestion des Vols</h2>
+                <h2 class="animate__animated animate__fadeInDown">Yam's</h2>
                 <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}}</p>
                 <!-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> -->
               </div>
@@ -43,10 +43,10 @@
           </div>
 
           <!-- Slide 4 -->
-          <div class="carousel-item" style="background-image: url('static/img/slide/slide-7.png');">
+          <div class="carousel-item" style="background-image: url('static/img/slide/slide-4.webp');">
             <div class="carousel-container">
               <div class="carousel-content container">
-                <h2 class="animate__animated animate__fadeInDown">Gestion des Vols</h2>
+                <h2 class="animate__animated animate__fadeInDown">Yam's</h2>
                 <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}}</p>
                 <!-- <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a> -->
               </div>
@@ -69,7 +69,7 @@
   <main id="main">
 
     <!-- ======= Tableau vols ======= -->
-    <section id="tableau_vols">
+    <section id="tableau">
       <!-- <section id="tableau_vols" class="about"> -->
       <div class="container" data-aos="fade-up">
 
@@ -107,7 +107,7 @@
         <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
 
           <div class="section-title">
-            <h3>Nos Vols</h3>
+            <h3>Scores</h3>
           </div>
         </div>
         <div>
@@ -115,16 +115,15 @@
           <table class="table text=centered mx-auto w-100">
             <tbody>
               <tr>
-                <td class="text-center"><i class="fa-solid fa-flag-checkered fa-2x"></i><br> Indicatif</td>
-                <td class="text-center"><i class="fa-solid fa-plane-departure fa-2x"></i><br>OACI Départ</td>
-                <td class="text-center"><i class="fa-solid fa-plane-arrival fa-2x"></i><br>OACI Arrivée</td>
-                <td class="text-center"><i class="fa-regular fa-clock fa-2x"></i><br> Heure Départ</td>
-                <td class="text-center"><i class="fa-solid fa-clock fa-2x"></i><br> Heure Arrivée</td>
+                <td class="text-center"><i class="fa-solid fa-ranking-star fa-2x"></i><br> Classement</td>
+                <td class="text-center"><i class="fa-solid fa-person fa-2x"></i><br> Nom</td>
+                <td class="text-center"><i class="fa-solid fa-calendar fa-2x"></i><br>Date</td>
+                <td class="text-center"><i class="fa-solid fa-star fa-2x"></i><br>Score</td>
               </tr>
               
-              {% for vol in vols%}
+              {% for partie in parties%}
                 <tr>
-                {% for item in vol%}
+                {% for item in partie%}
                   <td class="text-center">{{item}}</td>
                 {% endfor%}
                 </tr>

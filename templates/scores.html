@@ -1,0 +1,43 @@
+<main id="main">
+  <!-- ======= Breadcrumbs Section ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Scores</h2>
+        <ol>
+          <li>
+            <a href="index.html">Accueil</a>
+          </li>
+          <li>Scores</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <!-- End Breadcrumbs Section -->
+  <section class="inner-page">
+    <div class="container">
+      <h3>Scores :</h3>
+    </div>
+  </section>
+
+  <table class="table text=centered mx-auto w-100">
+    <tbody>
+      <tr>
+        <td class="text-center"><i class="fa-solid fa-ranking-star fa-2x"></i><br> Classement</td>
+        <td class="text-center"><i class="fa-solid fa-person fa-2x"></i><br> Nom</td>
+        <td class="text-center"><i class="fa-solid fa-calendar fa-2x"></i><br>Date</td>
+        <td class="text-center"><i class="fa-solid fa-star fa-2x"></i><br>Score</td>
+      </tr>
+      
+      {% for partie in parties%}
+        <tr>
+        {% for item in partie%}
+          <td class="text-center">{{item}}</td>
+        {% endfor%}
+        </tr>
+      {% endfor%}
+    </tbody>
+  </table>
+
+  </main>
+<!-- End #main -->
