@@ -5,6 +5,7 @@ from flask_session import Session
 import os 
 import random
 from datetime import datetime
+import pickle
 
 # Configuration de Flask
 app = Flask(__name__)
@@ -14,6 +15,16 @@ Session(app)
 
 
 # ----------------------- FONCTIONS AUXILIAIRES -----------------------
+
+def ecrire_game(dico,nom,score,figure_bool, chemin="data/games.txt"):
+    dico[nom]=[score,figure_bool]
+    with open(chemin, "wb") as fp:   #Pickling
+        pickle.dump(dico, fp)
+        
+def charger_games(chemin="data/games.txt"):
+    with open("data/games.txt", "rb") as fp:   # Unpickling
+        b = pickle.load(fp)
+    return b
 
 def charger_scores(chemin):
     res=[]
@@ -112,6 +123,25 @@ def jouer():
     
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html',)+render_template('footer.html')
 
+
+@app.route ('/charger_game',methods = ['GET'])
+def charger_game_html():
+    dico=charger_games()
+    session['scores'], session['figure_bool']=dico[session['user']]
+    session['lancer']=0
+    session['fin']=False
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
+
+
+@app.route ('/save_game',methods = ['GET'])
+def save_game_html():
+    dico=charger_games()
+    
+    ecrire_game(dico,session['user'],session['scores'],session['figure_bool'])
+    session['in_dico']=True
+    
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
+    
 
 @app.route ('/lancer',methods = ['GET'])
 def lancer():
@@ -231,6 +261,11 @@ def connect():
         try:
             if int(output)==int(get_hash(form_user)):
                 session['user']=form_user
+                session['save_dico']=charger_games()
+                if session['user'] in session['save_dico']:
+                    session['in_dico']=True
+                else:
+                    session['in_dico']=False
                 return redirect('/')
             else:
                 page = """

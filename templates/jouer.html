@@ -3,7 +3,7 @@
   <section class="breadcrumbs">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
-        <h2>Jouer</h2>
+        <h2><i class="fa-solid fa-user"></i>  {{session['user']}}</h2>
         <ol>
           <li>
             <a href="index.html">Accueil</a>
@@ -16,13 +16,35 @@
   <!-- End Breadcrumbs Section -->
   <section class="inner-page">
     <div class="container">
-      <h3>Jouer : </h3>
-      
-
     </div>
   </section>
-
   {%if session['user']!=''%}
+  {%if not session['lancer']<3 %}
+  <form class="w-75 mx-auto pt-3 pb-3" action="/save_game" method="GET">
+    <button class="btn btn-outline-info mx-auto w-100" type="submit">Sauver la partie</button>
+  </form>
+  {%else%}
+  
+<div class="container">
+  <div class="row">
+
+<div class="col-8">
+   Veillez lancer vos dés pour sauvegarder
+</div>
+<div class="col-4"></div>
+</div>
+</div>
+
+  {%endif%}
+
+
+{%if session['in_dico']%}
+  <form class="w-75 mx-auto pt-3 pb-3" action="/charger_game" method="GET">
+    <button class="btn btn-outline-info mx-auto w-100" type="submit">Charger la dernière partie</button>
+  </form>
+{%endif%}
+
+  
 
 
   <div class="container">
@@ -38,11 +60,12 @@
           <td>Dé 5</td>
           </tr>
           <tr>
-          <td>{{session['des'][0]}}</td>
-          <td>{{session['des'][1]}}</td>
-          <td>{{session['des'][2]}}</td>
-          <td>{{session['des'][3]}}</td>
-          <td>{{session['des'][4]}}</td>
+            <img src="" alt="">
+          <td><img src="static/img/images_des/{{session['des'][0]}}.jpg" alt="{{session['des'][0]}}"></td>
+          <td><img src="static/img/images_des/{{session['des'][1]}}.jpg" alt="{{session['des'][1]}}"></td>
+          <td><img src="static/img/images_des/{{session['des'][2]}}.jpg" alt="{{session['des'][2]}}"></td>
+          <td><img src="static/img/images_des/{{session['des'][3]}}.jpg" alt="{{session['des'][3]}}"></td>
+          <td><img src="static/img/images_des/{{session['des'][4]}}.jpg" alt="{{session['des'][4]}}"></td>
           </tr>
           <tr>
         <form class="w-75 mx-auto pt-3 pb-3" action="/lancer" method="GET">

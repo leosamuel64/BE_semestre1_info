@@ -29,3 +29,16 @@ def add_user(login,password):
     connection.commit()
     connection.close()
         
+               
+import pickle
+l = {}
+
+
+    
+with open("data/games.txt", "wb") as fp:   #Pickling
+    pickle.dump(l, fp)
+        
+def charger_games(chemin="data/games.txt"):
+    with open("data/games.txt", "rb") as fp:   # Unpickling
+        b = pickle.load(fp)
+    return b

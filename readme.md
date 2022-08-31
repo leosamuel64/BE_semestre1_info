@@ -3,16 +3,17 @@
 ## Python
 
 - [ ] fonction comptage de point
-- [ ] fonction lire/ecrire scores
+- [x] fonction lire/ecrire scores
 - [ ] Calcul du score
-- [ ] Sauvegarde des scores
-- [ ] multi user
+- [x] Sauvegarde des scores
+- [x] multi user
+- [ ] multi joueur
 
 
 ## HTML/CSS
 
 - [x] base du site
-- [ ] Affichage feuille score avec totaux...
+- [x] Affichage feuille score avec totaux...
 - [ ] Remplir règles
 
 
