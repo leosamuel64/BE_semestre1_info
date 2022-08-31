@@ -14,7 +14,12 @@ def un(dés):
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return 1
+    res=0
+    for i in dés:
+        if i==1:
+            res+=1
+    print(dés,res)
+    return res
 
 def deux(dés):
     """
@@ -122,42 +127,57 @@ def sous_total(score):
     Entrée : score - Liste des scores
     Sortie : entier qui indique le total
     """
-    return 1
+    res=0
+    for i in range(0,6):
+        res+=score[0][i]
+    return res
 
 def prime(score):
     """
     Entrée : score - Liste des scores
     Sortie : entier qui indique le total de la prime
     """
-    return 1
+    if score[0][6]>=60:
+        res=30
+    else:
+        res=0
+    return res
 
 def total1(score):
     """
     Entrée : score - Liste des scores
     Sortie : entier qui indique le total
     """
-    return 1
+    return score[0][6]+score[0][7]
 
 def total2(score):
     """
     Entrée : score - Liste des scores
     Sortie : entier qui indique le total
     """
-    return 1
+    res=(score[1][0]-score[1][1])*score[0][0]
+    if res>0:
+        return res
+    else:
+        return 0
 
 def total3(score):
     """
     Entrée : score - Liste des scores
     Sortie : entier qui indique le total
     """
-    return 1
+    res=0
+    for i in range(0,5):
+        res+=score[2][i]
+    return res
 
 def total_final(score):
     """
     Entrée : score - Liste des scores
     Sortie : entier qui indique le total
     """
-    return 2
+    
+    return score[0][-1]+score[1][-1]+score[2][-2]
 
 
 def add_user(login,password):

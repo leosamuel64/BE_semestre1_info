@@ -185,12 +185,12 @@ def maj_score():
     
     result=request.args
     session['lancer']=0
-    session['des']=[random.randint(1,6) for _ in range(5)]
     point=DICO_FONCTIONS[result['figure']](session['des'])
     x,y=DICO_PLACES[result['figure']]
     session['scores'][x][y]=point
     session['figure_bool'][x][y]=False
     session['fin']=verif_fin(session['figure_bool'])
+    session['des']=[random.randint(1,6) for _ in range(5)]
     
     
     x,y=DICO_PLACES['sous_total']

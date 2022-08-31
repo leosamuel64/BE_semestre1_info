@@ -14,35 +14,12 @@
     </div>
   </section>
   <!-- End Breadcrumbs Section -->
-  <section class="inner-page">
+  <!-- <section class="inner-page">
     <div class="container">
     </div>
-  </section>
+  </section> -->
   {%if session['user']!=''%}
-  {%if not session['lancer']<3 %}
-  <form class="w-75 mx-auto pt-3 pb-3" action="/save_game" method="GET">
-    <button class="btn btn-outline-info mx-auto w-100" type="submit">Sauver la partie</button>
-  </form>
-  {%else%}
   
-<div class="container">
-  <div class="row">
-
-<div class="col-8">
-   Veillez lancer vos dés pour sauvegarder
-</div>
-<div class="col-4"></div>
-</div>
-</div>
-
-  {%endif%}
-
-
-{%if session['in_dico']%}
-  <form class="w-75 mx-auto pt-3 pb-3" action="/charger_game" method="GET">
-    <button class="btn btn-outline-info mx-auto w-100" type="submit">Charger la dernière partie</button>
-  </form>
-{%endif%}
 
   
 
@@ -83,8 +60,14 @@
           {%if not session['fin']%}
           
           {%if session['lancer']<3 %}
-            <button class="btn btn-outline-info mx-auto w-100" type="submit">Lancer</button>
+            <button class="btn btn-outline-danger mx-auto w-100" type="submit">Lancer</button>
+            {%else%}
+            <button class="btn btn-outline-danger mx-auto w-100" type="submit" disabled="disabled">Choisisez une figure</button>
+
           {%endif%}
+          {%else%}
+          <button class="btn btn-outline-danger mx-auto w-100" type="submit" disabled="disabled">Fin de partie</button>
+
           {%endif%}
 
           
@@ -93,15 +76,33 @@
         </form>
 
         <form class="w-75 mx-auto pt-3 pb-3" action="/reset" method="GET">
-          <button class="btn btn-outline-info mx-auto w-100" type="submit">Reset</button>
+          <button class="btn btn-outline-danger mx-auto w-100" type="submit">Nouvelle partie</button>
         </form>
         {%if session['fin']%}
         
         <form class="w-75 mx-auto pt-3 pb-3" action="/fin_score" method="GET">
-          <button class="btn btn-outline-info mx-auto w-100" type="submit">Fin du jeu - Enregistrer votre score</button>
+          <button class="btn btn-outline-danger mx-auto w-100" type="submit">Fin du jeu - Enregistrer votre score</button>
         </form>
         {%endif%}
 
+        {%if not session['lancer']<3 %}
+  <form class="w-75 mx-auto pt-3 pb-3" action="/save_game" method="GET">
+    <button class="btn btn-outline-danger mx-auto w-100" type="submit">Sauver la partie</button>
+  </form>
+  {%else%}
+  <form class="w-75 mx-auto pt-3 pb-3" action="/save_game" method="GET">
+    <button class="btn btn-outline-danger mx-auto w-100" type="submit" disabled="disabled">Lancez vos dés pour sauver : {{3-session['lancer']}} lancer à réaliser </button>
+  </form>
+  
+
+  {%endif%}
+
+
+{%if session['in_dico']%}
+  <form class="w-75 mx-auto pt-3 pb-3" action="/charger_game" method="GET">
+    <button class="btn btn-outline-danger mx-auto w-100" type="submit">Charger la dernière partie</button>
+  </form>
+{%endif%}
 
 
       </div>
@@ -233,7 +234,7 @@
           
         {%if not session['fin']%}
 
-  <button class="btn btn-outline-info mx-auto w-100" type="submit">Enregistrer</button>
+  <button class="btn btn-outline-danger mx-auto w-100" type="submit">Enregistrer</button>
           {%endif%}
       </div>
     </div>
