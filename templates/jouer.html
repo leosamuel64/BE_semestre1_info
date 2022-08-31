@@ -19,5 +19,182 @@
       <h3>Jouer :</h3>
     </div>
   </section>
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <table class="table text=centered mx-auto w-100">
+          <tbody>
+          <tr>
+          <td>Dé 1</td>
+          <td>Dé 2</td>
+          <td>Dé 3</td>
+          <td>Dé 4</td>
+          <td>Dé 5</td>
+          </tr>
+          <tr>
+          <td>{{session['des'][0]}}</td>
+          <td>{{session['des'][1]}}</td>
+          <td>{{session['des'][2]}}</td>
+          <td>{{session['des'][3]}}</td>
+          <td>{{session['des'][4]}}</td>
+          </tr>
+          <tr>
+        <form class="w-75 mx-auto pt-3 pb-3" action="/lancer" method="GET">
+            
+            <td><input type="checkbox" name="1" id="1" value="1" /></td>
+            <td><input type="checkbox" name="2" id="2" value="2" /></td>
+            <td><input type="checkbox" name="3" id="3" value="3" /></td>
+            <td><input type="checkbox" name="4" id="4" value="4" /></td>
+            <td><input type="checkbox" name="5" id="5" value="5" /></td>
+            
+          
+            </tr>
+          </tbody>
+          </table>
+          {%if session['lancer']<3 %}
+            <button class="btn btn-outline-info mx-auto w-100" type="submit">Lancer</button>
+          {%endif%}
+          
+
+
+        </form>
+
+      </div>
+
+      <div class="col-4">
+        <form class="w-75 mx-auto pt-3 pb-3" action="/score" method="GET">
+        <table class="table text=centered mx-auto w-100">
+          <tbody>
+          <tr>
+          <td></td>  
+          <td>Figures</td>
+          <td>Points</td>
+          </tr>
+          <tr>
+          <td><input type="radio" name="figure" id="un" value="un" checked/></td>
+          <td>As</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td><input type="radio" name="figure" id="deux" value="deux"/></td>
+          
+          <td>Deux</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+          <td><input type="radio" name="figure" id="trois" value="trois"/></td>
+
+          <td>Trois</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+          <td><input type="radio" name="figure" id="quatre" value="quatre"/></td>
+
+          <td>Quatre</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+          <td><input type="radio" name="figure" id="cinq" value="cinq"/></td>
+
+          <td>Cinq</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+          <td><input type="radio" name="figure" id="six" value="six"/></td>
+
+          <td>Six</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+          <td><i class="fa-solid fa-plus"></i></td>  
+
+          <td>Sous total</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-plus"></i></td>  
+
+            <td>Prime</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+          <td><i class="fa-solid fa-arrow-right"></i></td>  
+
+          <td>Total I</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+          <td><input type="radio" name="figure" id="sup" value="sup"/></td>
+
+          <td>Supérieur</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+          <td><input type="radio" name="figure" id="inf" value="inf"/></td>
+
+          <td>Inférieur</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+          <td><i class="fa-solid fa-arrow-right"></i></td>  
+
+          <td>Total II</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+          <td><input type="radio" name="figure" id="carre" value="carre"/></td>
+
+          <td>Carré</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+          <td><input type="radio" name="figure" id="full" value="full"/></td>
+
+          <td>Full</td>
+          <td>&nbsp;</td>
+          </tr>
+          <tr>
+          <td><input type="radio" name="figure" id="petite" value="petite"/></td>
+
+          <td>Petite Suite</td>
+          <td>&nbsp;</td>
+          </tr>
+            <tr>
+          <td><input type="radio" name="figure" id="grande" value="grande"/></td>
+
+          <td>Grande Suite</td>
+          <td>&nbsp;</td>
+          </tr>
+            <tr>
+          <td><input type="radio" name="figure" id="yams" value="yams"/></td>
+
+          <td>Yam's</td>
+          <td>&nbsp;</td>
+          </tr>
+            <tr>
+          <td><i class="fa-solid fa-arrow-right"></i></td>  
+
+          <td>Total III</td>
+          <td>&nbsp;</td>
+          </tr>
+          </tbody>
+          </table>
+  <button class="btn btn-outline-info mx-auto w-100" type="submit">Enregistrer</button>
+
+      </div>
+    </div>
+  </div>
+
+
+</form>
+
+
+
+
+
+
   </main>
 <!-- End #main -->
