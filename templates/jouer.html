@@ -44,11 +44,11 @@
           <tr>
         <form class="w-75 mx-auto pt-3 pb-3" action="/lancer" method="GET">
             
+            <td><input type="checkbox" name="0" id="0" value="0" /></td>
             <td><input type="checkbox" name="1" id="1" value="1" /></td>
             <td><input type="checkbox" name="2" id="2" value="2" /></td>
             <td><input type="checkbox" name="3" id="3" value="3" /></td>
             <td><input type="checkbox" name="4" id="4" value="4" /></td>
-            <td><input type="checkbox" name="5" id="5" value="5" /></td>
             
           
             </tr>
@@ -57,128 +57,135 @@
           {%if session['lancer']<3 %}
             <button class="btn btn-outline-info mx-auto w-100" type="submit">Lancer</button>
           {%endif%}
+
           
 
 
         </form>
 
+        <form class="w-75 mx-auto pt-3 pb-3" action="/reset" method="GET">
+          <button class="btn btn-outline-info mx-auto w-100" type="submit">Reset</button>
+        </form>
+
+
+
       </div>
 
       <div class="col-4">
-        <form class="w-75 mx-auto pt-3 pb-3" action="/score" method="GET">
+        <form class="w-75 mx-auto pt-3 pb-3" action="/enregistrer" method="GET">
         <table class="table text=centered mx-auto w-100">
           <tbody>
           <tr>
           <td></td>  
-          <td>Figures</td>
-          <td>Points</td>
+          <td><b>Figures</b></td>
+          <td><b>Points</b></td>
           </tr>
           <tr>
-          <td><input type="radio" name="figure" id="un" value="un" checked/></td>
+          <td>{%if session['figure_bool'][0][0]%}<input type="radio" name="figure" id="un" value="un"/>{%endif%}</td>
           <td>As</td>
-          <td>&nbsp;</td>
+          <td>{{session['scores'][0][0]}}</td>
           </tr>
           <tr>
-            <td><input type="radio" name="figure" id="deux" value="deux"/></td>
+            <td>{%if session['figure_bool'][0][1]%}<input type="radio" name="figure" id="deux" value="deux"/>{%endif%}</td>
           
           <td>Deux</td>
-          <td>&nbsp;</td>
+          <td>{{session['scores'][0][1]}}</td>
           </tr>
           <tr>
-          <td><input type="radio" name="figure" id="trois" value="trois"/></td>
+          <td>{%if session['figure_bool'][0][2]%}<input type="radio" name="figure" id="trois" value="trois"/>{%endif%}</td>
 
           <td>Trois</td>
-          <td>&nbsp;</td>
+          <td>{{session['scores'][0][2]}}</td>
           </tr>
           <tr>
-          <td><input type="radio" name="figure" id="quatre" value="quatre"/></td>
+          <td>{%if session['figure_bool'][0][3]%}<input type="radio" name="figure" id="quatre" value="quatre"/>{%endif%}</td>
 
           <td>Quatre</td>
-          <td>&nbsp;</td>
+          <td>{{session['scores'][0][3]}}</td>
           </tr>
           <tr>
-          <td><input type="radio" name="figure" id="cinq" value="cinq"/></td>
+          <td>{%if session['figure_bool'][0][4]%}<input type="radio" name="figure" id="cinq" value="cinq"/>{%endif%}</td>
 
           <td>Cinq</td>
-          <td>&nbsp;</td>
+          <td>{{session['scores'][0][4]}}</td>
           </tr>
           <tr>
-          <td><input type="radio" name="figure" id="six" value="six"/></td>
+          <td>{%if session['figure_bool'][0][5]%}<input type="radio" name="figure" id="six" value="six"/>{%endif%}</td>
 
           <td>Six</td>
-          <td>&nbsp;</td>
+          <td>{{session['scores'][0][5]}}</td>
           </tr>
           <tr>
           <td><i class="fa-solid fa-plus"></i></td>  
 
-          <td>Sous total</td>
-          <td>&nbsp;</td>
+          <td><b>Sous total</b></td>
+          <td>{{session['scores'][0][6]}}</td>
           </tr>
           <tr>
             <td><i class="fa-solid fa-plus"></i></td>  
 
-            <td>Prime</td>
-          <td>&nbsp;</td>
+            <td><b>Prime</b></td>
+          <td>{{session['scores'][0][7]}}</td>
           </tr>
           <tr>
           <td><i class="fa-solid fa-arrow-right"></i></td>  
 
-          <td>Total I</td>
-          <td>&nbsp;</td>
+          <td><b>Total I</b></td>
+          <td>{{session['scores'][0][8]}}</td>
           </tr>
           <tr>
-          <td><input type="radio" name="figure" id="sup" value="sup"/></td>
+          <td>{%if session['figure_bool'][1][0]%}<input type="radio" name="figure" id="sup" value="sup"/>{%endif%}</td>
 
           <td>Supérieur</td>
-          <td>&nbsp;</td>
+          <td>{{session['scores'][1][0]}}</td>
           </tr>
           <tr>
-          <td><input type="radio" name="figure" id="inf" value="inf"/></td>
+          <td>{%if session['figure_bool'][1][1]%}<input type="radio" name="figure" id="inf" value="inf"/>{%endif%}</td>
 
           <td>Inférieur</td>
-          <td>&nbsp;</td>
+          <td>{{session['scores'][1][1]}}</td>
           </tr>
           <tr>
           <td><i class="fa-solid fa-arrow-right"></i></td>  
 
-          <td>Total II</td>
-          <td>&nbsp;</td>
+          <td><b>Total II</b></td>
+          <td>{{session['scores'][1][2]}}</td>
           </tr>
           <tr>
-          <td><input type="radio" name="figure" id="carre" value="carre"/></td>
+          <td>{%if session['figure_bool'][2][0]%}<input type="radio" name="figure" id="carre" value="carre"/>{%endif%}</td>
 
           <td>Carré</td>
-          <td>&nbsp;</td>
+          <td>{{session['scores'][2][0]}}</td>
           </tr>
           <tr>
-          <td><input type="radio" name="figure" id="full" value="full"/></td>
+          <td>{%if session['figure_bool'][2][1]%}<input type="radio" name="figure" id="full" value="full"/>{%endif%}</td>
 
           <td>Full</td>
-          <td>&nbsp;</td>
+          <td>{{session['scores'][2][1]}}</td>
           </tr>
           <tr>
-          <td><input type="radio" name="figure" id="petite" value="petite"/></td>
+          <td>{%if session['figure_bool'][2][2]%}<input type="radio" name="figure" id="petite" value="petite"/>{%endif%}</td>
 
           <td>Petite Suite</td>
-          <td>&nbsp;</td>
+          <td>{{session['scores'][2][2]}}</td>
           </tr>
             <tr>
-          <td><input type="radio" name="figure" id="grande" value="grande"/></td>
+          <td>{%if session['figure_bool'][2][3]%}<input type="radio" name="figure" id="grande" value="grande"/>{%endif%}</td>
 
           <td>Grande Suite</td>
-          <td>&nbsp;</td>
+          <td>{{session['scores'][2][3]}}</td>
           </tr>
             <tr>
-          <td><input type="radio" name="figure" id="yams" value="yams"/></td>
+          <td>{%if session['figure_bool'][2][4]%}<input type="radio" name="figure" id="yams" value="yams"/>{%endif%}</td>
 
           <td>Yam's</td>
-          <td>&nbsp;</td>
+          <td>{{session['scores'][2][4]}}</td>
           </tr>
             <tr>
           <td><i class="fa-solid fa-arrow-right"></i></td>  
 
-          <td>Total III</td>
-          <td>&nbsp;</td>
+          <td><b>Total III</b></td>
+          <td>{{session['scores'][2][5]}}</td>
           </tr>
           </tbody>
           </table>

@@ -10,91 +10,91 @@ def un(dés):
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return ()
+    return 1
 
 def deux(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return ()
+    return 1
 
 def trois(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return ()
+    return 1
 
 def quatre(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return ()
+    return 1
 
 def cinq(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return ()
+    return 1
 
 def six(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return ()
+    return 1
 
 def superieur(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return ()
+    return 1
 
 def inferieur(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return ()
+    return 1
 
 def carre(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return ()
+    return 1
 
 def full(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return ()
+    return 1
 
 def petite_suite(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return ()
+    return 1
 
 def grande_suite(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return ()
+    return 1
 
 def yams(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return ()
+    return 1
 
 
 
@@ -106,7 +106,7 @@ def yams(dés):
 
 """
 La feuille des score est une liste de liste :
-[   [as,deux,trois,quatre,cinq,six,sous_total,prime,total1],
+[   [un,deux,trois,quatre,cinq,six,sous_total,prime,total1],
     [Supérieur, Inférieur, total2],
     [Carré,Full,petite_suite,grande_suite,yams,total3]    
 ]
@@ -116,34 +116,34 @@ La feuille des score est une liste de liste :
 def sous_total(score):
     """
     Entrée : score - Liste des scores
-    Sortie : met a jour la liste des scores en modifiant le sous total
+    Sortie : entier qui indique le total
     """
-    return ()
+    return 1
 
 def prime(score):
     """
     Entrée : score - Liste des scores
-    Sortie : met a jour la liste des scores en calculant la prime
+    Sortie : entier qui indique le total de la prime
     """
-    return ()
+    return 1
 
 def total1(score):
     """
     Entrée : score - Liste des scores
-    Sortie : met a jour la liste des scores en modifiant le total1
+    Sortie : entier qui indique le total
     """
-    return ()
+    return 1
 
 def total2(score):
     """
     Entrée : score - Liste des scores
-    Sortie : met a jour la liste des scores en modifiant le total2
+    Sortie : entier qui indique le total
     """
-    return ()
+    return 1
 
 def total3(score):
     """
     Entrée : score - Liste des scores
-    Sortie : met a jour la liste des scores en modifiant le total3
+    Sortie : entier qui indique le total
     """
-    return ()
+    return 1
