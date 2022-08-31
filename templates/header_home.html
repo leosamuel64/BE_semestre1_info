@@ -77,6 +77,15 @@
             <li>
               <a href="scores.html">Scores</a>
             </li>
+
+            <li>
+              {%if session['user']==''%}
+              <a href="connecter.html">Se connecter</a>
+              {%else%}
+              <a href="deco.html">Deconnexion</a>
+              {%endif%}
+
+            </li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>

@@ -16,10 +16,13 @@
   <!-- End Breadcrumbs Section -->
   <section class="inner-page">
     <div class="container">
-      <h3>Jouer :</h3>
+      <h3>Jouer : </h3>
+      
+
     </div>
   </section>
 
+  {%if session['user']!=''%}
 
 
   <div class="container">
@@ -54,8 +57,11 @@
             </tr>
           </tbody>
           </table>
+          {%if not session['fin']%}
+          
           {%if session['lancer']<3 %}
             <button class="btn btn-outline-info mx-auto w-100" type="submit">Lancer</button>
+          {%endif%}
           {%endif%}
 
           
@@ -66,6 +72,12 @@
         <form class="w-75 mx-auto pt-3 pb-3" action="/reset" method="GET">
           <button class="btn btn-outline-info mx-auto w-100" type="submit">Reset</button>
         </form>
+        {%if session['fin']%}
+        
+        <form class="w-75 mx-auto pt-3 pb-3" action="/fin_score" method="GET">
+          <button class="btn btn-outline-info mx-auto w-100" type="submit">Fin du jeu - Enregistrer votre score</button>
+        </form>
+        {%endif%}
 
 
 
@@ -187,17 +199,44 @@
           <td><b>Total III</b></td>
           <td>{{session['scores'][2][5]}}</td>
           </tr>
+          <tr>
+            <td><i class="fa-solid fa-arrow-right"></i></td>  
+  
+            <td><b>Total Final</b></td>
+            <td>{{session['scores'][2][6]}}</td>
+            </tr>
           </tbody>
           </table>
-  <button class="btn btn-outline-info mx-auto w-100" type="submit">Enregistrer</button>
+          
+        {%if not session['fin']%}
 
+  <button class="btn btn-outline-info mx-auto w-100" type="submit">Enregistrer</button>
+          {%endif%}
       </div>
     </div>
   </div>
 
 
 </form>
+{%else%}
 
+<div class="container">
+  <div class="row">
+<div class="col-4">
+
+
+</div>
+<div class="col-4">
+  <i class="fa-solid fa-triangle-exclamation fa-2x"></i> Veillez vous connecter pour continuer<i class="fa-solid fa-triangle-exclamation fa-2x"></i>
+</div>
+<div class="col-4"></div>
+</div>
+</div>
+
+
+
+
+{%endif%}
 
 
 

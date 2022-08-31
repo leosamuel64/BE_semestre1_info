@@ -1,3 +1,7 @@
+import sqlite3
+import os
+
+
 # ---------------------------------------------------------------------
 # --------------------- FONCTION POUR COMPTER LES POINTS ---------------------
 # ---------------------------------------------------------------------
@@ -147,3 +151,53 @@ def total3(score):
     Sortie : entier qui indique le total
     """
     return 1
+
+def total_final(score):
+    """
+    Entrée : score - Liste des scores
+    Sortie : entier qui indique le total
+    """
+    return 2
+
+
+def add_user(login,password):
+    stream = os.popen('./hachage '+password)
+    hash = stream.read()
+    connection = sqlite3.connect('data/database.db')
+    
+    request='''
+    INSERT INTO users (login,hash)
+       VALUES ("'''+login+'", '+hash+')'
+       
+    cursor = connection.execute(request)
+    connection.commit()
+    connection.close()
+    
+def existe_deja(login):
+    request="""
+    SELECT login from users
+        where login='"""+login+"'"
+    
+    connection = sqlite3.connect('data/database.db')
+    cursor = connection.execute(request)
+    
+    res=False
+    for _ in cursor:
+        res=True
+    
+    connection.commit()
+    connection.close()
+    return res
+
+def get_hash(login):
+    connection = sqlite3.connect('data/database.db')
+    request='''
+               SELECT hash FROM users
+                WHERE login="'''+login+'"'
+    cursor = connection.execute(request)
+    for x in cursor:
+        hash=x[0]
+    
+    connection.commit()
+    connection.close()
+    return hash
