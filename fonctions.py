@@ -1,12 +1,11 @@
 import sqlite3
 import os
+import pickle
 
 
 # ---------------------------------------------------------------------
 # --------------------- FONCTION POUR COMPTER LES POINTS ---------------------
 # ---------------------------------------------------------------------
-
-
 
 
 def un(dés):
@@ -112,15 +111,16 @@ def yams(dés):
 # --------------------- FONCTIONS POUR LES TOTAUX ---------------------
 # ---------------------------------------------------------------------
 
-
 """
 La feuille des score est une liste de liste :
 [   [un,deux,trois,quatre,cinq,six,sous_total,prime,total1],
     [Supérieur, Inférieur, total2],
     [Carré,Full,petite_suite,grande_suite,yams,total3]    
 ]
-
 """
+# ---------------------------------------------------------------------
+
+
 
 def sous_total(score):
     """
@@ -131,6 +131,7 @@ def sous_total(score):
     for i in range(0,6):
         res+=score[0][i]
     return res
+
 
 def prime(score):
     """
@@ -143,12 +144,14 @@ def prime(score):
         res=0
     return res
 
+
 def total1(score):
     """
     Entrée : score - Liste des scores
     Sortie : entier qui indique le total
     """
     return score[0][6]+score[0][7]
+
 
 def total2(score):
     """
@@ -161,6 +164,7 @@ def total2(score):
     else:
         return 0
 
+
 def total3(score):
     """
     Entrée : score - Liste des scores
@@ -171,6 +175,7 @@ def total3(score):
         res+=score[2][i]
     return res
 
+
 def total_final(score):
     """
     Entrée : score - Liste des scores
@@ -180,7 +185,18 @@ def total_final(score):
     return score[0][-1]+score[1][-1]+score[2][-2]
 
 
+
+
+# ---------------------------------------------------------------------
+# -------------------------- AUTRES FONCTIONS -------------------------
+# ---------------------------------------------------------------------
+
+
+
 def add_user(login,password):
+    """
+    Ajoute un utilisateur dans la base de données SQL
+    """
     stream = os.popen('./hachage '+password)
     hash = stream.read()
     connection = sqlite3.connect('data/database.db')
@@ -193,7 +209,11 @@ def add_user(login,password):
     connection.commit()
     connection.close()
     
+      
 def existe_deja(login):
+    """
+    Indique si un utilisateur existe déjà
+    """
     request="""
     SELECT login from users
         where login='"""+login+"'"
@@ -209,7 +229,11 @@ def existe_deja(login):
     connection.close()
     return res
 
+
 def get_hash(login):
+    """
+    Indique le hash du mot de passe associé à un login
+    """
     connection = sqlite3.connect('data/database.db')
     request='''
                SELECT hash FROM users
@@ -221,3 +245,65 @@ def get_hash(login):
     connection.commit()
     connection.close()
     return hash
+
+
+def ecrire_game(dico,nom,score,figure_bool, chemin="data/games.txt"):
+    """
+    Sauvegarde le dico des parties dans un fichier texte
+    """
+    dico[nom]=[score,figure_bool]
+    with open(chemin, "wb") as fp:   #Pickling
+        pickle.dump(dico, fp)
+     
+        
+def charger_games(chemin="data/games.txt"):
+    """
+    Renvoie le dico des parties du fichier texte de sauvegarde
+    """
+    with open("data/games.txt", "rb") as fp:   # Unpickling
+        b = pickle.load(fp)
+    return b
+
+
+def charger_scores(chemin):
+    """
+    Renvoie la liste des scores enregistrer
+    """
+    res=[]
+    file=open(chemin,'r')
+    for ligne in file:
+        rank,nom,date,score=ligne.strip().split(',')
+        res.append([rank,nom,date,score])
+    return res
+
+
+def ecrire_score(chemin,nom,date,score):
+    """
+    Ajouter un nouveau score dans le fichier de sauvegarde et le classe à la bonne position
+    """
+    liste=charger_scores(chemin)
+    liste.append([0,nom,date,score])
+    
+    sous_liste=[[int(scoreL),nomL,dateL] for (_,nomL,dateL,scoreL) in liste]
+    sous_liste.sort(reverse=True)
+    
+    file=open(chemin,'w')
+    i=1
+    for ligne in sous_liste:
+        s,n,d=ligne
+        file.write(str(i)+','+str(n)+','+str(d)+','+str(s)+'\n')
+        i+=1
+    file.close()
+    
+        
+def verif_fin(matrice):
+    """
+    Indique si toutes les figures ont été traitées
+    """
+    res=True
+    for liste in matrice:
+        for b in liste:
+            if b==True:
+                res=False 
+    return res 
+
