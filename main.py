@@ -16,48 +16,6 @@ Session(app)
 
 # ----------------------- FONCTIONS AUXILIAIRES -----------------------
 
-def ecrire_game(dico,nom,score,figure_bool, chemin="data/games.txt"):
-    dico[nom]=[score,figure_bool]
-    with open(chemin, "wb") as fp:   #Pickling
-        pickle.dump(dico, fp)
-        
-def charger_games(chemin="data/games.txt"):
-    with open("data/games.txt", "rb") as fp:   # Unpickling
-        b = pickle.load(fp)
-    return b
-
-def charger_scores(chemin):
-    res=[]
-    file=open(chemin,'r')
-    for ligne in file:
-        rank,nom,date,score=ligne.strip().split(',')
-        res.append([rank,nom,date,score])
-    return res
-
-def ecrire_score(chemin,nom,date,score):
-    liste=charger_scores(chemin)
-    liste.append([0,nom,date,score])
-    
-    sous_liste=[[int(scoreL),nomL,dateL] for (_,nomL,dateL,scoreL) in liste]
-    sous_liste.sort(reverse=True)
-    
-    file=open(chemin,'w')
-    i=1
-    for ligne in sous_liste:
-        s,n,d=ligne
-        file.write(str(i)+','+str(n)+','+str(d)+','+str(s)+'\n')
-        i+=1
-    file.close()
-    
-        
-def verif_fin(matrice):
-    res=True
-    for liste in matrice:
-        for b in liste:
-            if b==True:
-                res=False 
-    return res 
-
 
 
 # ----------------------- VARIABLES GLOBALES -----------------------
