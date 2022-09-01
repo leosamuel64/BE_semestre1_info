@@ -235,33 +235,34 @@ def maj_score():
  
     
     result=request.args
-    session['lancer']=0
-    point=DICO_FONCTIONS[result['figure']](session['des'])
-    x,y=DICO_PLACES[result['figure']]
-    session['scores'][x][y]=point
-    session['figure_bool'][x][y]=False
-    session['fin']=verif_fin(session['figure_bool'])
-    session['des']=[random.randint(1,6) for _ in range(5)]
-    
-    
-    x,y=DICO_PLACES['sous_total']
-    session['scores'][x][y] = sous_total(session['scores'])
-    
-    x,y=DICO_PLACES['prime']
-    session['scores'][x][y] = prime(session['scores'])
-    
-    x,y=DICO_PLACES['total_1']
-    session['scores'][x][y] = total1(session['scores'])
-    
-    x,y=DICO_PLACES['total_2']
-    session['scores'][x][y] = total2(session['scores'])
-    
-    x,y=DICO_PLACES['total_3']
-    session['scores'][x][y] = total3(session['scores'])
-    
-    x,y=DICO_PLACES['total_final']
-    session['scores'][x][y] = total_final(session['scores'])
-    
+    if result!={}:
+        session['lancer']=0
+        point=DICO_FONCTIONS[result['figure']](session['des'])
+        x,y=DICO_PLACES[result['figure']]
+        session['scores'][x][y]=point
+        session['figure_bool'][x][y]=False
+        session['fin']=verif_fin(session['figure_bool'])
+        session['des']=[random.randint(1,6) for _ in range(5)]
+        
+        
+        x,y=DICO_PLACES['sous_total']
+        session['scores'][x][y] = sous_total(session['scores'])
+        
+        x,y=DICO_PLACES['prime']
+        session['scores'][x][y] = prime(session['scores'])
+        
+        x,y=DICO_PLACES['total_1']
+        session['scores'][x][y] = total1(session['scores'])
+        
+        x,y=DICO_PLACES['total_2']
+        session['scores'][x][y] = total2(session['scores'])
+        
+        x,y=DICO_PLACES['total_3']
+        session['scores'][x][y] = total3(session['scores'])
+        
+        x,y=DICO_PLACES['total_final']
+        session['scores'][x][y] = total_final(session['scores'])
+        
     
     
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
@@ -282,38 +283,40 @@ def maj_score_multi():
  
     
     result=request.args
-    session['lancer']=0
-    point=DICO_FONCTIONS[result['figure']](session['des'])
-    x,y=DICO_PLACES[result['figure']]
-    session['scores'][x][y]=point
-    session['figure_bool'][x][y]=False
-    session['fin']=verif_fin(session['figure_bool'])
-    session['des']=[random.randint(1,6) for _ in range(5)]
     
-    
-    x,y=DICO_PLACES['sous_total']
-    session['scores'][x][y] = sous_total(session['scores'])
-    
-    x,y=DICO_PLACES['prime']
-    session['scores'][x][y] = prime(session['scores'])
-    
-    x,y=DICO_PLACES['total_1']
-    session['scores'][x][y] = total1(session['scores'])
-    
-    x,y=DICO_PLACES['total_2']
-    session['scores'][x][y] = total2(session['scores'])
-    
-    x,y=DICO_PLACES['total_3']
-    session['scores'][x][y] = total3(session['scores'])
-    
-    x,y=DICO_PLACES['total_final']
-    session['scores'][x][y] = total_final(session['scores'])
-    
-    session['tour_multi']=session['tour_multi']+1
-    
-    session['scores']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][0]
-    session['figure_bool']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][1]
-    
+    if result!={}:
+        session['lancer']=0
+        point=DICO_FONCTIONS[result['figure']](session['des'])
+        x,y=DICO_PLACES[result['figure']]
+        session['scores'][x][y]=point
+        session['figure_bool'][x][y]=False
+        session['fin']=verif_fin(session['figure_bool'])
+        session['des']=[random.randint(1,6) for _ in range(5)]
+        
+        
+        x,y=DICO_PLACES['sous_total']
+        session['scores'][x][y] = sous_total(session['scores'])
+        
+        x,y=DICO_PLACES['prime']
+        session['scores'][x][y] = prime(session['scores'])
+        
+        x,y=DICO_PLACES['total_1']
+        session['scores'][x][y] = total1(session['scores'])
+        
+        x,y=DICO_PLACES['total_2']
+        session['scores'][x][y] = total2(session['scores'])
+        
+        x,y=DICO_PLACES['total_3']
+        session['scores'][x][y] = total3(session['scores'])
+        
+        x,y=DICO_PLACES['total_final']
+        session['scores'][x][y] = total_final(session['scores'])
+        
+        session['tour_multi']=session['tour_multi']+1
+        
+        session['scores']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][0]
+        session['figure_bool']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][1]
+        
     
     
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html')+render_template('footer.html')

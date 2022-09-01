@@ -346,4 +346,3 @@ def verif_fin(matrice):
             if b==True:
                 res=False 
     return res 
-
