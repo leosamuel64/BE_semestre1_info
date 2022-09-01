@@ -4,10 +4,10 @@
 
 - [ ] fonction comptage de point
 - [x] fonction lire/ecrire scores
-- [ ] Calcul du score
+- [x] Calcul du score
 - [x] Sauvegarde des scores
 - [x] multi user
-- [ ] multi joueur
+- [x] multi joueur
 
 
 ## HTML/CSS

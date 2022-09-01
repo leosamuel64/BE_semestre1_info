@@ -105,6 +105,49 @@ def jouer():
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html',)+render_template('footer.html')
 
 
+@app.route ('/jouer_multi.html')
+def jouer_multi():
+    if 'mutliplayer' not in session:
+        session['multiplayer']=False
+        
+    session['false']=False
+    if ('lancer' not in session) or (session['lancer']==NOMBRE_LANCER):
+        session['lancer']=0
+    if 'des' not in session:
+        l=[random.randint(1,6) for _ in range(5)]
+        session['des']=l
+    
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html',)+render_template('footer.html')
+
+
+@app.route ('/lance_multi',methods = ['GET'])
+def lance_multi():
+    
+    session['multiplayer']=True
+    result=request.args
+    txt = result['0']
+    nom=txt.split(',')
+    session['nom_multi']=nom
+    session['nb_joueur_multi']=len(nom)
+    
+    dico_multi={}
+    for i in nom:
+        dico_multi[i]=[[[0,0,0,0,0,0,0,0,0],
+                        [0,0,0],
+                        [0,0,0,0,0,0,0]],
+                       [[True,True,True,True,True,True],
+                        [True,True],
+                        [True,True,True,True,True]]]
+        
+    session['dico_multi']=dico_multi
+    session['tour_multi']=0
+    
+    session['scores']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][0]
+    session['figure_bool']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][1]
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html',)+render_template('footer.html')
+
+
+
 @app.route ('/charger_game',methods = ['GET'])
 def charger_game_html():
     dico=charger_games()
@@ -134,6 +177,17 @@ def lancer():
             session['des'][i]=random.randint(1,6)
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
 
+@app.route ('/lancer_multi',methods = ['GET'])
+def lancer_multi():
+    result=request.args
+    session['lancer']+=1
+    for i in range(5):
+        if str(i) in result:
+        # if True:
+            session['des'][i]=random.randint(1,6)
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html')+render_template('footer.html')
+
+
 @app.route ('/reset',methods = ['GET'])
 def reset():
     session['des']=[random.randint(1,6) for _ in range(5)]
@@ -148,6 +202,22 @@ def reset():
     session['fin']=False
     
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
+
+@app.route ('/reset_multi',methods = ['GET'])
+def reset_mutli():
+    session['des']=[random.randint(1,6) for _ in range(5)]
+    
+    session['scores']=[[0,0,0,0,0,0,0,0,0],
+                           [0,0,0],
+                           [0,0,0,0,0,0,0]]
+    session['figure_bool']=[[True,True,True,True,True,True],
+                                [True,True],
+                                [True,True,True,True,True]]
+    session['lancer']=0
+    session['fin']=False
+    session['multiplayer']=False
+    
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html')+render_template('footer.html')
 
 
 @app.route ('/enregistrer',methods = ['GET'])
@@ -196,6 +266,57 @@ def maj_score():
     
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
 
+
+@app.route ('/enregistrer_multi',methods = ['GET'])
+def maj_score_multi():
+    if 'scores' not in session:
+        session['scores']=[[0,0,0,0,0,0,0,0,0],
+                           [0,0,0],
+                           [0,0,0,0,0,0,0]]
+        
+    if 'figure_bool' not in session:
+        session['figure_bool']=[[True,True,True,True,True,True],
+                                [True,True],
+                                [True,True,True,True,True]]
+        
+ 
+    
+    result=request.args
+    session['lancer']=0
+    point=DICO_FONCTIONS[result['figure']](session['des'])
+    x,y=DICO_PLACES[result['figure']]
+    session['scores'][x][y]=point
+    session['figure_bool'][x][y]=False
+    session['fin']=verif_fin(session['figure_bool'])
+    session['des']=[random.randint(1,6) for _ in range(5)]
+    
+    
+    x,y=DICO_PLACES['sous_total']
+    session['scores'][x][y] = sous_total(session['scores'])
+    
+    x,y=DICO_PLACES['prime']
+    session['scores'][x][y] = prime(session['scores'])
+    
+    x,y=DICO_PLACES['total_1']
+    session['scores'][x][y] = total1(session['scores'])
+    
+    x,y=DICO_PLACES['total_2']
+    session['scores'][x][y] = total2(session['scores'])
+    
+    x,y=DICO_PLACES['total_3']
+    session['scores'][x][y] = total3(session['scores'])
+    
+    x,y=DICO_PLACES['total_final']
+    session['scores'][x][y] = total_final(session['scores'])
+    
+    session['tour_multi']=session['tour_multi']+1
+    
+    session['scores']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][0]
+    session['figure_bool']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][1]
+    
+    
+    
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html')+render_template('footer.html')
 
 
 @app.route ('/scores.html')

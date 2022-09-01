@@ -272,7 +272,7 @@ def get_hash(login):
     """
     Indique le hash du mot de passe associé à un login
     La fonction hash à la signature : hash : login (str) |-> hash (int) 
-    La fonction de hash n'est pas bijective car Card(ensemble_login)>Card(ensemble_hash)
+    La fonction de hash n'est pas bijective car Card(ensemble_login)>Card(ensemble_hash) ((MD5))
     """
     connection = sqlite3.connect('data/database.db')
     request='''
