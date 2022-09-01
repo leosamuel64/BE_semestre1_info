@@ -1,0 +1,34 @@
+<main id="main">
+  <!-- ======= Breadcrumbs Section ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Option du compte</h2>
+        <ol>
+          <li>
+            <a href="index.html">Accueil</a>
+          </li>
+          <li>Option du compte</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <!-- End Breadcrumbs Section -->
+  <section class="inner-page">
+    <div class="container">
+      <h3>Option du compte de {{session['user']}}</h3>
+    </div>
+  </section>
+  
+  <form class="w-75 mx-auto pt-3 pb-3" action="/remove_user" method="GET">
+    <button class="btn btn-outline-danger mx-auto w-100" type="submit">Supprimer le compte</button>
+  </form>
+
+  <form class="w-75 mx-auto pt-3 pb-3" action="/change_password" method="GET">
+    <input type="password" class="form-control" name="pass" id="pass" placeholder="Mot de Passe" required>
+    <button class="btn btn-outline-danger mx-auto w-100" type="submit">Modifier le mot de passe</button>
+  </form>
+
+
+</main>
+<!-- End #main -->

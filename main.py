@@ -59,7 +59,35 @@ DICO_PLACES=    {   'un':(0,0),
 
 @app.route ('/')
 def index():
+    if 'scores' not in session:
+        session['scores']=[[0,0,0,0,0,0,0,0,0],
+                           [0,0,0],
+                           [0,0,0,0,0,0,0]]
+        
+    if 'figure_bool' not in session:
+        session['figure_bool']=[[True,True,True,True,True,True],
+                                [True,True],
+                                [True,True,True,True,True]]
     return render_template('header_home.html')+render_template('index.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
+
+@app.route ('/remove_user')
+def remove_user_db():
+    remove_user(session['user'])
+    session['user']=''
+    return render_template('header_home.html')+render_template('index.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
+
+@app.route ('/option_compte.html')
+def option_compte():
+    return render_template('header_home.html')+render_template('option_compte.html')+render_template('footer.html')
+
+@app.route ('/change_password',methods = ['GET'])
+def change_password():
+    result=request.args
+    nv_mdp=result['pass']
+    log=session["user"]
+    changer_password(log,nv_mdp)
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('index.html')+render_template('footer.html')
+
 
 @app.route ('/regles.html')
 def regles():

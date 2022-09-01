@@ -191,7 +191,8 @@ def total_final(score):
 # -------------------------- AUTRES FONCTIONS -------------------------
 # ---------------------------------------------------------------------
 
-
+# DELETE FROM users
+# WHERE login='userTest'
 
 def add_user(login,password):
     """
@@ -209,6 +210,43 @@ def add_user(login,password):
     connection.commit()
     connection.close()
     
+def remove_user(login):
+    """
+    Enlève un utilisateur dans la base de données SQL
+    """
+    
+    connection = sqlite3.connect('data/database.db')
+    
+    request="""
+    DELETE from users
+        where login='"""+login+"'"
+       
+    cursor = connection.execute(request)
+    connection.commit()
+    connection.close()
+    
+def changer_password(login,password):
+    """
+    Change le mot de passe dans la base de données SQL
+    """
+    stream = os.popen('./hachage '+password)
+    hash = stream.read()
+    connection = sqlite3.connect('data/database.db')
+    
+    request="""
+    DELETE from users
+        where login='"""+login+"'"
+       
+    cursor = connection.execute(request)
+    connection.commit()
+    
+    request='''
+    INSERT INTO users (login,hash)
+       VALUES ("'''+login+'", '+hash+')'
+       
+    cursor = connection.execute(request)
+    connection.commit()
+    connection.close()
       
 def existe_deja(login):
     """
@@ -233,6 +271,8 @@ def existe_deja(login):
 def get_hash(login):
     """
     Indique le hash du mot de passe associé à un login
+    La fonction hash à la signature : hash : login (str) |-> hash (int) 
+    La fonction de hash n'est pas bijective car Card(ensemble_login)>Card(ensemble_hash)
     """
     connection = sqlite3.connect('data/database.db')
     request='''
