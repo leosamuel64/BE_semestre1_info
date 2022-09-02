@@ -65,7 +65,8 @@ DICO_PLACES=    {   'un':(0,0),
 
 @app.route ('/')
 def index():
-    session['user']=''
+    if 'user' not in session:
+        session['user']=''
     if 'scores' not in session:
         session['scores']=[[0,0,0,0,0,0,0,0,0],
                            [0,0,0],
@@ -440,4 +441,4 @@ def connect():
 
 
 if __name__ == '__main__' :
-    app.run(debug = False)
+    app.run(debug = True)
