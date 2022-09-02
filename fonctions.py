@@ -3,9 +3,14 @@ import os
 import pickle
 
 
+
+
 # ---------------------------------------------------------------------
-# --------------------- FONCTION POUR COMPTER LES POINTS ---------------------
+# ----------------- FONCTIONS POUR COMPTER LES POINTS -----------------
 # ---------------------------------------------------------------------
+
+
+
 
 def un(dés):
     """
@@ -19,6 +24,7 @@ def un(dés):
     print(dés,res)
     return res
 
+
 def deux(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
@@ -31,17 +37,18 @@ def deux(dés):
     print(dés,res)
     return res
 
+
 def trois(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-
     res=0
     for i in dés:
         if i==3:
             res+=3
     return res
+
 
 def quatre(dés):
     """
@@ -54,6 +61,7 @@ def quatre(dés):
             res+=4
     return res
 
+
 def cinq(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
@@ -64,6 +72,7 @@ def cinq(dés):
         if i==5:
             res+=5
     return res
+
 
 def six(dés):
     """
@@ -76,12 +85,14 @@ def six(dés):
             res+=6
     return res
 
+
 def superieur(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
     return sum(dés)
+
 
 def inferieur(dés):
     """
@@ -90,18 +101,18 @@ def inferieur(dés):
     """
     return sum(dés)
 
+
 def carre(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
     res=0
-
     for i in dés:
         if dés.count(i)==4:
             res=40+sum(dés)
-
     return res
+
 
 def full(dés):
     """
@@ -109,14 +120,13 @@ def full(dés):
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
     res=0
-    
     for i in dés:
         if dés.count(i)==3:
             for a in dés :
                 if dés.count(a)==2 and a!=i:
                     res=30+sum(dés)
-
     return res
+
 
 def petite_suite(dés):
     """
@@ -129,9 +139,9 @@ def petite_suite(dés):
         dés.sort()
         for i in range(0,3):
             if dés[k+i]!=dés[k+i+1]-1:
-                res[k]=False
-        
+                res[k]=False        
     return (res[0]^res[1])*45
+
 
 def grande_suite(dés):
     """
@@ -145,17 +155,16 @@ def grande_suite(dés):
             res=False
     return int(res)*50
 
+
 def yams(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
     res=0
-
     for i in dés:
         if dés.count(i)==5:
             res=50+sum(dés)
-
     return res
 
 
@@ -227,7 +236,6 @@ def total_final(score):
     Entrée : score - Liste des scores
     Sortie : entier qui indique le total
     """
-    
     return score[0][-1]+score[1][-1]+score[2][-2]
 
 
@@ -239,19 +247,21 @@ def total_final(score):
 
 
 
+
 def add_user(login,password):
     """
     Ajoute un utilisateur dans la base de données SQL
     """
     stream = os.popen('./hachage '+password)
     hash = stream.read()
+    
     connection = sqlite3.connect('data/database.db')
     
     request='''
     INSERT INTO users (login,hash)
        VALUES ("'''+login+'", '+hash+')'
        
-    cursor = connection.execute(request)
+    connection.execute(request)
     connection.commit()
     connection.close()
     
@@ -259,14 +269,13 @@ def remove_user(login):
     """
     Enlève un utilisateur dans la base de données SQL
     """
-    
     connection = sqlite3.connect('data/database.db')
     
     request="""
     DELETE from users
         where login='"""+login+"'"
        
-    cursor = connection.execute(request)
+    connection.execute(request)
     connection.commit()
     connection.close()
     
@@ -282,7 +291,7 @@ def changer_password(login,password):
     DELETE from users
         where login='"""+login+"'"
        
-    cursor = connection.execute(request)
+    connection.execute(request)
     connection.commit()
     
     request='''
@@ -337,7 +346,7 @@ def ecrire_game(dico,nom,score,figure_bool, chemin="data/games.txt"):
     Sauvegarde le dico des parties dans un fichier texte
     """
     dico[nom]=[score,figure_bool]
-    with open(chemin, "wb") as fp:   #Pickling
+    with open(chemin, "wb") as fp:
         pickle.dump(dico, fp)
      
         

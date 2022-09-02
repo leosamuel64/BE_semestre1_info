@@ -65,6 +65,7 @@ DICO_PLACES=    {   'un':(0,0),
 
 @app.route ('/')
 def index():
+    session['user']=''
     if 'scores' not in session:
         session['scores']=[[0,0,0,0,0,0,0,0,0],
                            [0,0,0],
@@ -74,12 +75,12 @@ def index():
         session['figure_bool']=[[True,True,True,True,True,True],
                                 [True,True],
                                 [True,True,True,True,True]]
-    return render_template('header_home.html')+render_template('index.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
+    return render_template('header_home.html',page_name=NOM_DU_SITE)+render_template('index.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
 
 
 @app.route ('/option_compte.html')
 def option_compte():
-    return render_template('header_home.html')+render_template('option_compte.html')+render_template('footer.html')
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Option compte')+render_template('option_compte.html')+render_template('footer.html')
 
 
 @app.route ('/regles.html')
@@ -96,7 +97,7 @@ def jouer():
         l=[random.randint(1,6) for _ in range(5)]
         session['des']=l
     
-    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html',)+render_template('footer.html')
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Solo')+render_template('jouer.html',)+render_template('footer.html')
 
 
 @app.route ('/jouer_multi.html')
@@ -111,23 +112,7 @@ def jouer_multi():
         l=[random.randint(1,6) for _ in range(5)]
         session['des']=l
     
-    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html',)+render_template('footer.html')
-
-
-@app.route ('/remove_user')
-def remove_user_db():
-    remove_user(session['user'])
-    session['user']=''
-    return render_template('header_home.html')+render_template('index.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
-
-
-@app.route ('/change_password',methods = ['GET'])
-def change_password():
-    result=request.args
-    nv_mdp=result['pass']
-    log=session["user"]
-    changer_password(log,nv_mdp)
-    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('index.html')+render_template('footer.html')
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Multijoueur')+render_template('jouer_multi.html',)+render_template('footer.html')
 
 
 @app.route ('/scores.html')
@@ -147,6 +132,22 @@ def connection():
 # ---------------------------------------------------------------------
 
 
+
+
+@app.route ('/remove_user')
+def remove_user_db():
+    remove_user(session['user'])
+    session['user']=''
+    return render_template('header_home.html')+render_template('index.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
+
+
+@app.route ('/change_password',methods = ['GET'])
+def change_password():
+    result=request.args
+    nv_mdp=result['pass']
+    log=session["user"]
+    changer_password(log,nv_mdp)
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('index.html')+render_template('footer.html')
 
 
 @app.route ('/deco')
