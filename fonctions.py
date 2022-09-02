@@ -165,14 +165,6 @@ def yams(dés):
 # --------------------- FONCTIONS POUR LES TOTAUX ---------------------
 # ---------------------------------------------------------------------
 
-"""
-La feuille des score est une liste de liste :
-[   [un,deux,trois,quatre,cinq,six,sous_total,prime,total1],
-    [Supérieur, Inférieur, total2],
-    [Carré,Full,petite_suite,grande_suite,yams,total3]    
-]
-"""
-# ---------------------------------------------------------------------
 
 
 
@@ -245,8 +237,7 @@ def total_final(score):
 # -------------------------- AUTRES FONCTIONS -------------------------
 # ---------------------------------------------------------------------
 
-# DELETE FROM users
-# WHERE login='userTest'
+
 
 def add_user(login,password):
     """
