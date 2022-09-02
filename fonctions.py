@@ -7,7 +7,6 @@ import pickle
 # --------------------- FONCTION POUR COMPTER LES POINTS ---------------------
 # ---------------------------------------------------------------------
 
-
 def un(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
@@ -25,84 +24,139 @@ def deux(dés):
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return 1
+    res=0
+    for i in dés:
+        if i==2:
+            res+=2
+    print(dés,res)
+    return res
 
 def trois(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return 1
+
+    res=0
+    for i in dés:
+        if i==3:
+            res+=3
+    return res
 
 def quatre(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return 1
+    res=0
+    for i in dés:
+        if i==4:
+            res+=4
+    return res
 
 def cinq(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return 1
+    res=0
+    for i in dés:
+        if i==5:
+            res+=5
+    return res
 
 def six(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return 1
+    res=0
+    for i in dés:
+        if i==6:
+            res+=6
+    return res
 
 def superieur(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return 1
+    return sum(dés)
 
 def inferieur(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return 1
+    return sum(dés)
 
 def carre(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return 1
+    res=0
+
+    for i in dés:
+        if dés.count(i)==4:
+            res=40+sum(dés)
+
+    return res
 
 def full(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return 1
+    res=0
+    
+    for i in dés:
+        if dés.count(i)==3:
+            for a in dés :
+                if dés.count(a)==2 and a!=i:
+                    res=30+sum(dés)
+
+    return res
 
 def petite_suite(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return 1
+    res=[True,True]
+    dés.sort()
+    for k in range (0,1):
+        dés.sort()
+        for i in range(0,3):
+            if dés[k+i]!=dés[k+i+1]-1:
+                res[k]=False
+        
+    return (res[0]^res[1])*45
 
 def grande_suite(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return 1
+    res=True
+    dés.sort()
+    for i in range(0,4):
+        if dés[i]!=dés[i+1]-1:
+            res=False
+    return int(res)*50
 
 def yams(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    return 1
+    res=0
+
+    for i in dés:
+        if dés.count(i)==5:
+            res=50+sum(dés)
+
+    return res
 
 
 
