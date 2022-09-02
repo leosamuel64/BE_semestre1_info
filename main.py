@@ -55,7 +55,13 @@ DICO_PLACES=    {   'un':(0,0),
 
 
 
+
+# ---------------------------------------------------------------------
 # ----------------------- ROUTAGE DES PAGES WEB -----------------------
+# ---------------------------------------------------------------------
+
+
+
 
 @app.route ('/')
 def index():
@@ -70,28 +76,16 @@ def index():
                                 [True,True,True,True,True]]
     return render_template('header_home.html')+render_template('index.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
 
-@app.route ('/remove_user')
-def remove_user_db():
-    remove_user(session['user'])
-    session['user']=''
-    return render_template('header_home.html')+render_template('index.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
 
 @app.route ('/option_compte.html')
 def option_compte():
     return render_template('header_home.html')+render_template('option_compte.html')+render_template('footer.html')
 
-@app.route ('/change_password',methods = ['GET'])
-def change_password():
-    result=request.args
-    nv_mdp=result['pass']
-    log=session["user"]
-    changer_password(log,nv_mdp)
-    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('index.html')+render_template('footer.html')
-
 
 @app.route ('/regles.html')
 def regles():
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Règles')+render_template('regles.html',)+render_template('footer.html')
+
 
 @app.route ('/jouer.html')
 def jouer():
@@ -120,6 +114,47 @@ def jouer_multi():
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html',)+render_template('footer.html')
 
 
+@app.route ('/remove_user')
+def remove_user_db():
+    remove_user(session['user'])
+    session['user']=''
+    return render_template('header_home.html')+render_template('index.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
+
+
+@app.route ('/change_password',methods = ['GET'])
+def change_password():
+    result=request.args
+    nv_mdp=result['pass']
+    log=session["user"]
+    changer_password(log,nv_mdp)
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('index.html')+render_template('footer.html')
+
+
+@app.route ('/scores.html')
+def scores():
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Scores')+render_template('scores.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
+
+
+@app.route ('/connecter.html')
+def connection():
+    return render_template('header_home.html')+render_template('connecter.html',)+render_template('footer.html')
+
+
+
+
+# ---------------------------------------------------------------------
+# ----------------------- ROUTAGES INTERACTIONS -----------------------
+# ---------------------------------------------------------------------
+
+
+
+
+@app.route ('/deco')
+def deco():
+    session['user']=''
+    return redirect('/')
+    
+
 @app.route ('/lance_multi',methods = ['GET'])
 def lance_multi():
     
@@ -145,7 +180,6 @@ def lance_multi():
     session['scores']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][0]
     session['figure_bool']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][1]
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html',)+render_template('footer.html')
-
 
 
 @app.route ('/charger_game',methods = ['GET'])
@@ -177,6 +211,7 @@ def lancer():
             session['des'][i]=random.randint(1,6)
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
 
+
 @app.route ('/lancer_multi',methods = ['GET'])
 def lancer_multi():
     result=request.args
@@ -202,6 +237,7 @@ def reset():
     session['fin']=False
     
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
+
 
 @app.route ('/reset_multi',methods = ['GET'])
 def reset_mutli():
@@ -231,9 +267,7 @@ def maj_score():
         session['figure_bool']=[[True,True,True,True,True,True],
                                 [True,True],
                                 [True,True,True,True,True]]
-        
- 
-    
+           
     result=request.args
     if result!={}:
         session['lancer']=0
@@ -243,7 +277,6 @@ def maj_score():
         session['figure_bool'][x][y]=False
         session['fin']=verif_fin(session['figure_bool'])
         session['des']=[random.randint(1,6) for _ in range(5)]
-        
         
         x,y=DICO_PLACES['sous_total']
         session['scores'][x][y] = sous_total(session['scores'])
@@ -262,9 +295,7 @@ def maj_score():
         
         x,y=DICO_PLACES['total_final']
         session['scores'][x][y] = total_final(session['scores'])
-        
-    
-    
+          
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
 
 
@@ -280,8 +311,6 @@ def maj_score_multi():
                                 [True,True],
                                 [True,True,True,True,True]]
         
- 
-    
     result=request.args
     
     if result!={}:
@@ -292,8 +321,7 @@ def maj_score_multi():
         session['figure_bool'][x][y]=False
         session['fin']=verif_fin(session['figure_bool'])
         session['des']=[random.randint(1,6) for _ in range(5)]
-        
-        
+          
         x,y=DICO_PLACES['sous_total']
         session['scores'][x][y] = sous_total(session['scores'])
         
@@ -316,15 +344,9 @@ def maj_score_multi():
         
         session['scores']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][0]
         session['figure_bool']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][1]
-        
-    
-    
+         
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html')+render_template('footer.html')
 
-
-@app.route ('/scores.html')
-def scores():
-    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Scores')+render_template('scores.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
 
 @app.route ('/fin_score',methods = ['GET'])
 def fin_score():
@@ -343,16 +365,6 @@ def fin_score():
     session['fin']=False
     
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
-
-@app.route ('/connecter.html')
-def connection():
-    return render_template('header_home.html')+render_template('connecter.html',)+render_template('footer.html')
-
-@app.route ('/deco.html')
-def deco():
-    session['user']=''
-    return redirect('/')
-
 
 
 @app.route ('/connect',methods = ['POST'])
@@ -417,7 +429,14 @@ def connect():
         return redirect('/connecter.html')
 
 
-# ----------------------- EXECUTION DU SERVEUR WEB -----------------------
+
+
+# ---------------------------------------------------------------------
+# ---------------------- EXECUTION DU SERVEUR WEB ---------------------
+# ---------------------------------------------------------------------
+
+
+
 
 if __name__ == '__main__' :
     app.run(debug = True)
