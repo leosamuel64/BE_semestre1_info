@@ -109,7 +109,7 @@ def carre(dés):
     """
     res=0
     for i in dés:
-        if dés.count(i)==4:
+        if dés.count(i)>=4:
             res=40+sum(dés)
     return res
 
@@ -123,7 +123,7 @@ def full(dés):
     for i in dés:
         if dés.count(i)==3:
             for a in dés :
-                if dés.count(a)==2 and a!=i:
+                if dés.count(a)==2:
                     res=30+sum(dés)
     return res
 
