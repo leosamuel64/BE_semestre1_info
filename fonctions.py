@@ -125,6 +125,8 @@ def full(dés):
             for a in dés :
                 if dés.count(a)==2:
                     res=30+sum(dés)
+        elif dés.count(i)==5:
+            res=res=30+sum(dés)
     return res
 
 
@@ -135,7 +137,7 @@ def petite_suite(dés):
     """
     res=True
     sans_doubles_liste=sans_doubles(dés)
-    if len(sans_doubles_liste)!=4:
+    if len(sans_doubles_liste)<4:
         return 0
     else:
         for i in range(0,3):

@@ -21,7 +21,7 @@ def petite_suite(dés):
     """
     res=True
     sans_doubles_liste=sans_doubles(dés)
-    if len(sans_doubles_liste)!=4:
+    if len(sans_doubles_liste)<4:
         return False*0
     else:
         for i in range(0,3):
@@ -30,4 +30,21 @@ def petite_suite(dés):
     return res*45
         
 
-print(petite_suite([1,2,2,4,3]))
+# print(petite_suite([1,2,3,4,5]))
+
+
+def full(dés):
+    """
+    Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
+    Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
+    """
+    res=0
+    for i in dés:
+        if dés.count(i)==3:
+            for a in dés :
+                if dés.count(a)==2:
+                    res=30+sum(dés)
+    
+    return res
+
+print(full([1,1,1,1,1]))
