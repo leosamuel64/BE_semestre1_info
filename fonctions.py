@@ -133,15 +133,15 @@ def petite_suite(dés):
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    res=[True,True]
-    dés.sort()
-    for k in range (0,1):
-        dés.sort()
+    res=True
+    sans_doubles_liste=sans_doubles(dés)
+    if len(sans_doubles_liste)!=4:
+        return 0
+    else:
         for i in range(0,3):
-            if dés[k+i]!=dés[k+i+1]-1:
-                res[k]=False        
-    return (res[0]^res[1])*45
-
+            if sans_doubles_liste[i]!=sans_doubles_liste[i+1]-1:
+                res=False
+    return res*45
 
 def grande_suite(dés):
     """
@@ -248,6 +248,17 @@ def total_final(score):
 
 
 
+def sans_doubles(dés):
+    """
+    Renvoie la liste sans double et trié
+    """
+    dico={i:0 for i in range(1,7) }
+    for i in dés:
+        dico[i]+=1  
+    res=[i for i in range(1,7) if dico[i]!=0]
+    return res
+
+
 def add_user(login,password):
     """
     Ajoute un utilisateur dans la base de données SQL
@@ -264,6 +275,7 @@ def add_user(login,password):
     connection.execute(request)
     connection.commit()
     connection.close()
+    
     
 def remove_user(login):
     """
