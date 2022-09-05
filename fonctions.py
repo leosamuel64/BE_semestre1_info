@@ -253,13 +253,13 @@ def add_user(login,password):
     Ajoute un utilisateur dans la base de données SQL
     """
     stream = os.popen('./hachage '+password)
-    hash = stream.read()
+    hash_txt = stream.read()
     
     connection = sqlite3.connect('data/database.db')
     
     request='''
     INSERT INTO users (login,hash)
-       VALUES ("'''+login+'", '+hash+')'
+       VALUES ("'''+login+'", '+hash_txt+')'
        
     connection.execute(request)
     connection.commit()
