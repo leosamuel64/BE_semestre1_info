@@ -65,6 +65,9 @@ DICO_PLACES=    {   'un':(0,0),
 
 @app.route ('/')
 def index():
+    """
+    Page d'accueil du site
+    """
     if 'user' not in session:
         session['user']=''
     if 'scores' not in session:
@@ -81,17 +84,25 @@ def index():
 
 @app.route ('/option_compte.html')
 def option_compte():
+    """
+    Page pour gérer son compte
+    """
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Option compte')+render_template('option_compte.html')+render_template('footer.html')
 
 
 @app.route ('/regles.html')
 def regles():
+    """
+    Page avec les règles
+    """
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Règles')+render_template('regles.html',)+render_template('footer.html')
 
 
 @app.route ('/jouer.html')
 def jouer():
-    session['false']=False
+    """
+    Page de jeu du mode solo
+    """
     if ('lancer' not in session) or (session['lancer']==NOMBRE_LANCER):
         session['lancer']=0
     if 'des' not in session:
@@ -103,10 +114,12 @@ def jouer():
 
 @app.route ('/jouer_multi.html')
 def jouer_multi():
+    """
+    Page du jeu du mode multijoueur
+    """
     if 'mutliplayer' not in session:
         session['multiplayer']=False
         
-    session['false']=False
     if ('lancer' not in session) or (session['lancer']==NOMBRE_LANCER):
         session['lancer']=0
     if 'des' not in session:
@@ -118,11 +131,17 @@ def jouer_multi():
 
 @app.route ('/scores.html')
 def scores():
+    """
+    Page avec les scores
+    """
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Scores')+render_template('scores.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
 
 
 @app.route ('/connecter.html')
 def connection():
+    """
+    Page de connexion
+    """
     return render_template('header_home.html')+render_template('connecter.html',)+render_template('footer.html')
 
 
@@ -137,6 +156,9 @@ def connection():
 
 @app.route ('/remove_user')
 def remove_user_db():
+    """
+    Redirection pour supprimer un compte de la base de données des comptes 
+    """
     remove_user(session['user'])
     session['user']=''
     return render_template('header_home.html')+render_template('index.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
@@ -144,6 +166,9 @@ def remove_user_db():
 
 @app.route ('/change_password',methods = ['GET'])
 def change_password():
+    """
+    Redirection qui modifie le mot de passe d'un utilisateur dans la base de données des comptes 
+    """
     result=request.args
     nv_mdp=result['pass']
     log=session["user"]
@@ -153,12 +178,18 @@ def change_password():
 
 @app.route ('/deco')
 def deco():
+    """
+    Redirection qui déconnecte l'utilisateur
+    """
     session['user']=''
     return redirect('/')
     
 
 @app.route ('/lance_multi',methods = ['GET'])
 def lance_multi():
+    """
+    Redirection qui lance une partie en multijoueur
+    """
     
     session['multiplayer']=True
     result=request.args
@@ -186,6 +217,9 @@ def lance_multi():
 
 @app.route ('/charger_game',methods = ['GET'])
 def charger_game_html():
+    """
+    Redirection qui charge la dernière partie sauvée
+    """
     dico=charger_games()
     session['scores'], session['figure_bool']=dico[session['user']]
     session['lancer']=0
@@ -195,6 +229,9 @@ def charger_game_html():
 
 @app.route ('/save_game',methods = ['GET'])
 def save_game_html():
+    """
+    Redirection qui sauve la partie en cours
+    """
     dico=charger_games()
     
     ecrire_game(dico,session['user'],session['scores'],session['figure_bool'])
@@ -205,28 +242,35 @@ def save_game_html():
 
 @app.route ('/lancer',methods = ['GET'])
 def lancer():
+    """
+    Redirection qui met à jour la liste des dés en fonction des dés selectionnés (mode solo)
+    """
     result=request.args
     session['lancer']+=1
     for i in range(5):
         if str(i) in result:
-        # if True:
             session['des'][i]=random.randint(1,6)
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
 
 
 @app.route ('/lancer_multi',methods = ['GET'])
 def lancer_multi():
+    """
+    Redirection qui met à jour la liste des dés en fonction des dés selectionnés (mode multi)
+    """
     result=request.args
     session['lancer']+=1
     for i in range(5):
         if str(i) in result:
-        # if True:
             session['des'][i]=random.randint(1,6)
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html')+render_template('footer.html')
 
 
 @app.route ('/reset',methods = ['GET'])
 def reset():
+    """
+    Redirection qui met la partie à zéro (mode solo)
+    """
     session['des']=[random.randint(1,6) for _ in range(5)]
     
     session['scores']=[[0,0,0,0,0,0,0,0,0],
@@ -243,6 +287,9 @@ def reset():
 
 @app.route ('/reset_multi',methods = ['GET'])
 def reset_mutli():
+    """
+    Redirection qui met la partie à zéro (mode multi)
+    """
     session['des']=[random.randint(1,6) for _ in range(5)]
     
     session['scores']=[[0,0,0,0,0,0,0,0,0],
@@ -260,6 +307,9 @@ def reset_mutli():
 
 @app.route ('/enregistrer',methods = ['GET'])
 def maj_score():
+    """
+    Redirection qui met à jour le score après avoir mis une figure (mode solo)
+    """
     if 'scores' not in session:
         session['scores']=[[0,0,0,0,0,0,0,0,0],
                            [0,0,0],
@@ -303,6 +353,9 @@ def maj_score():
 
 @app.route ('/enregistrer_multi',methods = ['GET'])
 def maj_score_multi():
+    """
+    Redirection qui met à jour le score après avoir mis une figure (mode mutli)
+    """
     if 'scores' not in session:
         session['scores']=[[0,0,0,0,0,0,0,0,0],
                            [0,0,0],
@@ -352,6 +405,9 @@ def maj_score_multi():
 
 @app.route ('/fin_score',methods = ['GET'])
 def fin_score():
+    """
+    Redirection qui ajoute le score dans le tableau des scores
+    """
     name=session['user']
     ecrire_score('data/scores.txt',name,datetime.today().strftime('%Y-%m-%d'),total_final(session['scores']))
     
@@ -370,7 +426,10 @@ def fin_score():
 
 
 @app.route ('/connect',methods = ['POST'])
-def connect():   
+def connect():
+    """
+    Redirection qui gère la connexion d'un utilisateur (avec la base de données)
+    """   
     if request.form['action'] == 'connect':     
         form_user=request.form['login']
         form_password=request.form['pwd']

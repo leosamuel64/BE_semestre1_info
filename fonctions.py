@@ -252,9 +252,9 @@ def total_final(score):
 
 def sans_doubles(dés):
     """
-    Renvoie la liste sans double et trié
+    Renvoie la liste sans double et trié (tri par dénombrement O(n) avec n=len(dés))
     """
-    dico={i:0 for i in range(1,7) }
+    dico={i:0 for i in range(1,7)}
     for i in dés:
         dico[i]+=1  
     res=[i for i in range(1,7) if dico[i]!=0]

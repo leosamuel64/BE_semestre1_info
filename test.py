@@ -1,50 +1,49 @@
-from random import random
 import random
+import re
 
-
-def sans_doubles(dés):
-    """
-    Renvoie la liste sans double et trié
-    """
-    dico={i:0 for i in range(1,7) }
-    for i in dés:
-        dico[i]+=1  
-    res=[i for i in range(1,7) if dico[i]!=0]
+def maxi(l):
+    res=0
+    for i in l:
+        if i>res:
+            res=i
     return res
 
-
-
-def petite_suite(dés):
-    """
-    Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
-    Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
-    """
-    res=True
-    sans_doubles_liste=sans_doubles(dés)
-    if len(sans_doubles_liste)<4:
-        return False*0
-    else:
-        for i in range(0,3):
-            if sans_doubles_liste[i]!=sans_doubles_liste[i+1]-1:
-                res=False
-    return res*45
+def tri(l):
+    m=maxi(l)
+    res=[]
+    dico={i:0 for i in range(m+1)}
+    for i in l:
+        dico[i]+=1
         
-
-# print(petite_suite([1,2,3,4,5]))
-
-
-def full(dés):
-    """
-    Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
-    Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
-    """
-    res=0
-    for i in dés:
-        if dés.count(i)==3:
-            for a in dés :
-                if dés.count(a)==2:
-                    res=30+sum(dés)
+    # res=[i for i in range(m+1) if dico[i]!=0]
+    
+    for i in range(m+1):
+        if dico[i]!=0:
+            for k in range(dico[i]):
+                res.append(i)
     
     return res
 
-print(full([1,1,1,1,1]))
+def genere_liste(n):
+    res=[]
+    for _ in range(n):
+        res.append(random.randint(0,100))
+    return res
+    
+
+# print(tri(genere_liste(100)))
+
+import time
+l=genere_liste(5000000)
+
+td=time.time()
+tri(l)
+print('Mon temps',time.time()-td)
+
+td=time.time()
+sorted(l)
+print('Son temps',time.time()-td)
+
+
+
+
