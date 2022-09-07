@@ -68,7 +68,7 @@
         </table>
         {%if not session['fin']%}
 
-        {%if session['lancer']<3 %} <button class="btn btn-outline-danger mx-auto w-100" type="submit">Lancer</button>
+        {%if session['lancer']<2 %} <button class="btn btn-outline-danger mx-auto w-100" type="submit">Lancer</button>
           {%else%}
           <button class="btn btn-outline-danger mx-auto w-100" type="submit" disabled="disabled">Choisisez une
             figure</button>

@@ -16,7 +16,7 @@ Session(app)
 # ----------------------- VARIABLES GLOBALES -----------------------
 
 NOM_DU_SITE="Yam's"
-NOMBRE_LANCER=3
+NOMBRE_LANCER=2
 DICO_FONCTIONS={    'un':un,
                     'deux':deux,
                     'trois':trois,

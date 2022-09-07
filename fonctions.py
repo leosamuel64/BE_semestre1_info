@@ -216,7 +216,7 @@ def total2(score):
     Sortie : entier qui indique le total
     """
     res=(score[1][0]-score[1][1])*score[0][0]
-    if res>0:
+    if res>0:                   # Pour éviter les points négatifs dans total II
         return res
     else:
         return 0

@@ -49,7 +49,7 @@
         </table>
         {%if not session['fin']%}
 
-        {%if session['lancer']<3 %} <button class="btn btn-outline-danger mx-auto w-100" type="submit">Lancer</button>
+        {%if session['lancer']<2 %} <button class="btn btn-outline-danger mx-auto w-100" type="submit">Lancer</button>
           {%else%}
           <button class="btn btn-outline-danger mx-auto w-100" type="submit" disabled="disabled">Choisisez une
             figure</button>
@@ -73,13 +73,13 @@
           </form>
           {%endif%}
 
-          {%if not session['lancer']<3 %} <form class="w-75 mx-auto pt-3 pb-3" action="/save_game" method="GET">
+          {%if not session['lancer']<2 %} <form class="w-75 mx-auto pt-3 pb-3" action="/save_game" method="GET">
             <button class="btn btn-outline-danger mx-auto w-100" type="submit">Sauver la partie</button>
             </form>
             {%else%}
             <form class="w-75 mx-auto pt-3 pb-3" action="/save_game" method="GET">
               <button class="btn btn-outline-danger mx-auto w-100" type="submit" disabled="disabled">Lancez vos dés pour
-                sauver : {{3-session['lancer']}} lancer à réaliser </button>
+                sauver : {{2-session['lancer']}} lancer à réaliser </button>
             </form>
 
             {%endif%}
