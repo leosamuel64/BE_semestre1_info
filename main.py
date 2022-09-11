@@ -248,7 +248,7 @@ def lancer():
     result=request.args
     session['lancer']+=1
     for i in range(5):
-        if str(i) in result:
+        if str(i) in result and session['lancer']<=NOMBRE_LANCER:
             session['des'][i]=random.randint(1,6)
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
 
