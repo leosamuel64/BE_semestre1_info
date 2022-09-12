@@ -48,11 +48,11 @@
             </tr>
             <tr>
               <img src="" alt="">
-              <td><img src="static/img/images_des/{{session['des'][0]}}.jpg" alt="{{session['des'][0]}}"></td>
-              <td><img src="static/img/images_des/{{session['des'][1]}}.jpg" alt="{{session['des'][1]}}"></td>
-              <td><img src="static/img/images_des/{{session['des'][2]}}.jpg" alt="{{session['des'][2]}}"></td>
-              <td><img src="static/img/images_des/{{session['des'][3]}}.jpg" alt="{{session['des'][3]}}"></td>
-              <td><img src="static/img/images_des/{{session['des'][4]}}.jpg" alt="{{session['des'][4]}}"></td>
+              <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][0]]}} fa-5x " style="color:#8F1913"></i></td>
+              <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][1]]}} fa-5x" style="color:#8F1913"></i></td>
+              <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][2]]}} fa-5x" style="color:#8F1913"></i></td>
+              <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][3]]}} fa-5x" style="color:#8F1913"></i></td>
+              <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][4]]}} fa-5x" style="color:#8F1913"></i></td>
             </tr>
             <tr>
               <form class="w-75 mx-auto pt-3 pb-3" action="/lancer_multi" method="GET">

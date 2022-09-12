@@ -79,6 +79,7 @@ def index():
         session['figure_bool']=[[True,True,True,True,True,True],
                                 [True,True],
                                 [True,True,True,True,True]]
+    session['dice_img']={1:"one",2:"two",3:'three',4:"four",5:"five",6:"six"}
     return render_template('header_home.html',page_name=NOM_DU_SITE)+render_template('index.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
 
 
