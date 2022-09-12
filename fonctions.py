@@ -151,10 +151,13 @@ def grande_suite(dés):
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
     res=True
-    dés.sort()
-    for i in range(0,4):
-        if dés[i]!=dés[i+1]-1:
-            res=False
+    nvlist=sans_doubles(dés) #pas de double si grande suite
+    if len(nvlist)==5:
+        for i in range(0,4):
+            if nvlist[i]!=nvlist[i+1]-1:
+                res=False
+    else:
+        res=False
     return int(res)*50
 
 

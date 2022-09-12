@@ -94,12 +94,14 @@
                 <td></td>
                 <td><b>Figures</b></td>
                 <td><b>Points</b></td>
+                <td><b>Projections</b></td>
               </tr>
               <tr>
                 <td>{%if session['figure_bool'][0][0]%}<input type="radio" name="figure" id="un" value="un" />{%endif%}
                 </td>
                 <td>As</td>
                 <td>{{session['scores'][0][0]}}</td>
+                <td>{%if session['figure_bool'][0][0]%}{{session['projection'][0][0]}}{%endif%}</td>
               </tr>
               <tr>
                 <td>{%if session['figure_bool'][0][1]%}<input type="radio" name="figure" id="deux"
@@ -107,6 +109,7 @@
 
                 <td>Deux</td>
                 <td>{{session['scores'][0][1]}}</td>
+                <td>{%if session['figure_bool'][0][1]%}{{session['projection'][0][1]}}{%endif%}</td>
               </tr>
               <tr>
                 <td>{%if session['figure_bool'][0][2]%}<input type="radio" name="figure" id="trois"
@@ -114,6 +117,7 @@
 
                 <td>Trois</td>
                 <td>{{session['scores'][0][2]}}</td>
+                <td>{%if session['figure_bool'][0][2]%}{{session['projection'][0][2]}}{%endif%}</td>
               </tr>
               <tr>
                 <td>{%if session['figure_bool'][0][3]%}<input type="radio" name="figure" id="quatre"
@@ -121,6 +125,7 @@
 
                 <td>Quatre</td>
                 <td>{{session['scores'][0][3]}}</td>
+                <td>{%if session['figure_bool'][0][3]%}{{session['projection'][0][3]}}{%endif%}</td>
               </tr>
               <tr>
                 <td>{%if session['figure_bool'][0][4]%}<input type="radio" name="figure" id="cinq"
@@ -128,6 +133,7 @@
 
                 <td>Cinq</td>
                 <td>{{session['scores'][0][4]}}</td>
+                <td>{%if session['figure_bool'][0][4]%}{{session['projection'][0][4]}}{%endif%}</td>
               </tr>
               <tr>
                 <td>{%if session['figure_bool'][0][5]%}<input type="radio" name="figure" id="six"
@@ -135,24 +141,28 @@
 
                 <td>Six</td>
                 <td>{{session['scores'][0][5]}}</td>
+                <td>{%if session['figure_bool'][0][5]%}{{session['projection'][0][5]}}{%endif%}</td>
               </tr>
               <tr>
                 <td><i class="fa-solid fa-plus"></i></td>
 
                 <td><b>Sous total</b></td>
                 <td>{{session['scores'][0][6]}}</td>
+                <td><i class="fa-solid fa-plus"></i></td>
               </tr>
               <tr>
                 <td><i class="fa-solid fa-plus"></i></td>
 
                 <td><b>Prime</b></td>
                 <td>{{session['scores'][0][7]}}</td>
+                <td><i class="fa-solid fa-plus"></i></td>
               </tr>
               <tr>
                 <td><i class="fa-solid fa-arrow-right"></i></td>
 
                 <td><b>Total I</b></td>
                 <td>{{session['scores'][0][8]}}</td>
+                <td><i class="fa-solid fa-plus"></i></td>
               </tr>
               <tr>
                 <td>{%if session['figure_bool'][1][0]%}<input type="radio" name="figure" id="sup"
@@ -160,6 +170,7 @@
 
                 <td>Supérieur</td>
                 <td>{{session['scores'][1][0]}}</td>
+                <td>{%if session['figure_bool'][1][0]%}{{session['projection'][1][0]}}{%endif%}</td>
               </tr>
               <tr>
                 <td>{%if session['figure_bool'][1][1]%}<input type="radio" name="figure" id="inf"
@@ -167,12 +178,14 @@
 
                 <td>Inférieur</td>
                 <td>{{session['scores'][1][1]}}</td>
+                <td>{%if session['figure_bool'][1][1]%}{{session['projection'][1][1]}}{%endif%}</td>
               </tr>
               <tr>
                 <td><i class="fa-solid fa-arrow-right"></i></td>
 
                 <td><b>Total II</b></td>
                 <td>{{session['scores'][1][2]}}</td>
+                <td><i class="fa-solid fa-plus"></i></td>
               </tr>
               <tr>
                 <td>{%if session['figure_bool'][2][0]%}<input type="radio" name="figure" id="carre"
@@ -180,6 +193,7 @@
 
                 <td>Carré</td>
                 <td>{{session['scores'][2][0]}}</td>
+                <td>{%if session['figure_bool'][2][0]%}{{session['projection'][2][0]}}{%endif%}</td>
               </tr>
               <tr>
                 <td>{%if session['figure_bool'][2][1]%}<input type="radio" name="figure" id="full"
@@ -187,6 +201,7 @@
 
                 <td>Full</td>
                 <td>{{session['scores'][2][1]}}</td>
+                <td>{%if session['figure_bool'][2][1]%}{{session['projection'][2][1]}}{%endif%}</td>
               </tr>
               <tr>
                 <td>{%if session['figure_bool'][2][2]%}<input type="radio" name="figure" id="petite"
@@ -194,6 +209,7 @@
 
                 <td>Petite Suite</td>
                 <td>{{session['scores'][2][2]}}</td>
+                <td>{%if session['figure_bool'][2][2]%}{{session['projection'][2][2]}}{%endif%}</td>
               </tr>
               <tr>
                 <td>{%if session['figure_bool'][2][3]%}<input type="radio" name="figure" id="grande"
@@ -201,6 +217,7 @@
 
                 <td>Grande Suite</td>
                 <td>{{session['scores'][2][3]}}</td>
+                <td>{%if session['figure_bool'][2][3]%}{{session['projection'][2][3]}}{%endif%}</td>
               </tr>
               <tr>
                 <td>{%if session['figure_bool'][2][4]%}<input type="radio" name="figure" id="yams"
@@ -208,18 +225,21 @@
 
                 <td>Yam's</td>
                 <td>{{session['scores'][2][4]}}</td>
+                <td>{%if session['figure_bool'][2][4]%}{{session['projection'][2][4]}}{%endif%}</td>
               </tr>
               <tr>
                 <td><i class="fa-solid fa-arrow-right"></i></td>
 
                 <td><b>Total III</b></td>
                 <td>{{session['scores'][2][5]}}</td>
+                <td><i class="fa-solid fa-plus"></i></td>
               </tr>
               <tr>
                 <td><i class="fa-solid fa-arrow-right"></i></td>
 
                 <td><b>Total Final</b></td>
                 <td>{{session['scores'][2][6]}}</td>
+                <td><i class="fa-solid fa-plus"></i></td>
               </tr>
             </tbody>
           </table>

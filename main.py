@@ -108,6 +108,11 @@ def jouer():
     if 'des' not in session:
         l=[random.randint(1,6) for _ in range(5)]
         session['des']=l
+        
+    session['projection']=[ [un(session['des']),deux(session['des']),trois(session['des']),quatre(session['des']),cinq(session['des']),six(session['des']),0,0,0],
+                            [superieur(session['des']),inferieur(session['des']),0],
+                            [carre(session['des']),full(session['des']),petite_suite(session['des']),grande_suite(session['des']),yams(session['des']),0,0]]
+    
     
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Solo')+render_template('jouer.html',)+render_template('footer.html')
 
@@ -125,6 +130,11 @@ def jouer_multi():
     if 'des' not in session:
         l=[random.randint(1,6) for _ in range(5)]
         session['des']=l
+        
+    session['projection']=[ [un(session['des']),deux(session['des']),trois(session['des']),quatre(session['des']),cinq(session['des']),six(session['des']),0,0,0],
+                            [superieur(session['des']),inferieur(session['des']),0],
+                            [carre(session['des']),full(session['des']),petite_suite(session['des']),grande_suite(session['des']),yams(session['des']),0,0]]
+    
     
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Multijoueur')+render_template('jouer_multi.html',)+render_template('footer.html')
 
@@ -212,6 +222,11 @@ def lance_multi():
     
     session['scores']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][0]
     session['figure_bool']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][1]
+    session['projection']=[ [un(session['des']),deux(session['des']),trois(session['des']),quatre(session['des']),cinq(session['des']),six(session['des']),0,0,0],
+                            [superieur(session['des']),inferieur(session['des']),0],
+                            [carre(session['des']),full(session['des']),petite_suite(session['des']),grande_suite(session['des']),yams(session['des']),0,0]]
+    
+    
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html',)+render_template('footer.html')
 
 
@@ -247,9 +262,15 @@ def lancer():
     """
     result=request.args
     session['lancer']+=1
+    
     for i in range(5):
         if str(i) in result and session['lancer']<=NOMBRE_LANCER:
             session['des'][i]=random.randint(1,6)
+            
+    session['projection']=[ [un(session['des']),deux(session['des']),trois(session['des']),quatre(session['des']),cinq(session['des']),six(session['des']),0,0,0],
+                            [superieur(session['des']),inferieur(session['des']),0],
+                            [carre(session['des']),full(session['des']),petite_suite(session['des']),grande_suite(session['des']),yams(session['des']),0,0]]
+    
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
 
 
@@ -263,6 +284,11 @@ def lancer_multi():
     for i in range(5):
         if str(i) in result:
             session['des'][i]=random.randint(1,6)
+            
+    session['projection']=[ [un(session['des']),deux(session['des']),trois(session['des']),quatre(session['des']),cinq(session['des']),six(session['des']),0,0,0],
+                            [superieur(session['des']),inferieur(session['des']),0],
+                            [carre(session['des']),full(session['des']),petite_suite(session['des']),grande_suite(session['des']),yams(session['des']),0,0]]
+    
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html')+render_template('footer.html')
 
 
@@ -279,6 +305,10 @@ def reset():
     session['figure_bool']=[[True,True,True,True,True,True],
                                 [True,True],
                                 [True,True,True,True,True]]
+    session['projection']=[ [un(session['des']),deux(session['des']),trois(session['des']),quatre(session['des']),cinq(session['des']),six(session['des']),0,0,0],
+                            [superieur(session['des']),inferieur(session['des']),0],
+                            [carre(session['des']),full(session['des']),petite_suite(session['des']),grande_suite(session['des']),yams(session['des']),0,0]]
+    
     session['lancer']=0
     session['fin']=False
     
@@ -301,6 +331,11 @@ def reset_mutli():
     session['lancer']=0
     session['fin']=False
     session['multiplayer']=False
+    
+    session['projection']=[ [un(session['des']),deux(session['des']),trois(session['des']),quatre(session['des']),cinq(session['des']),six(session['des']),0,0,0],
+                            [superieur(session['des']),inferieur(session['des']),0],
+                            [carre(session['des']),full(session['des']),petite_suite(session['des']),grande_suite(session['des']),yams(session['des']),0,0]]
+    
     
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html')+render_template('footer.html')
 
@@ -347,6 +382,11 @@ def maj_score():
         
         x,y=DICO_PLACES['total_final']
         session['scores'][x][y] = total_final(session['scores'])
+        
+        session['projection']=[ [un(session['des']),deux(session['des']),trois(session['des']),quatre(session['des']),cinq(session['des']),six(session['des']),0,0,0],
+                            [superieur(session['des']),inferieur(session['des']),0],
+                            [carre(session['des']),full(session['des']),petite_suite(session['des']),grande_suite(session['des']),yams(session['des']),0,0]]
+    
           
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
 
@@ -400,6 +440,11 @@ def maj_score_multi():
         session['scores']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][0]
         session['figure_bool']=session['dico_multi'][session['nom_multi'][session['tour_multi']%session['nb_joueur_multi']]][1]
          
+         
+        session['projection']=[ [un(session['des']),deux(session['des']),trois(session['des']),quatre(session['des']),cinq(session['des']),six(session['des']),0,0,0],
+                            [superieur(session['des']),inferieur(session['des']),0],
+                            [carre(session['des']),full(session['des']),petite_suite(session['des']),grande_suite(session['des']),yams(session['des']),0,0]]
+    
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html')+render_template('footer.html')
 
 
