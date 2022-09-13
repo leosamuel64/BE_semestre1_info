@@ -255,6 +255,9 @@ def total_final(score):
 
 
 def read_chat(chemin='data/chat.txt'):
+    """
+    Retourne le fichier chat dans un tableau
+    """
     f=open(chemin,'r')
     chat=[]
     for ligne in f:
@@ -265,7 +268,7 @@ def read_chat(chemin='data/chat.txt'):
 
 def ajoute_chat(nom,message,chemin='data/chat.txt'):
     """
-    strftime("%Y-%m-%d %H:%M:%S", gmtime())
+    Ajoute un message dans le fichier chat
     """
     f=open(chemin,'r')
     chat=[]
@@ -279,12 +282,11 @@ def ajoute_chat(nom,message,chemin='data/chat.txt'):
         f.write(time+'<,:,>'+user+'<,:,>'+msg+'\n')
     f.close()
     
-
-    
-
-    
     
 def read_connected(chemin='data/connected.txt'):
+    """
+    Retourne les joueurs connectés du fichier
+    """
     f=open(chemin,'r')
     user=[]
     for ligne in f:
@@ -292,6 +294,9 @@ def read_connected(chemin='data/connected.txt'):
     return user
 
 def ajoute_connected(name,chemin='data/connected.txt'):
+    """
+    Ajoute un nouveau joueur dans les connectés
+    """
     try:
         enleve_connected(name)
     except:
@@ -309,6 +314,9 @@ def ajoute_connected(name,chemin='data/connected.txt'):
     
 
 def enleve_connected(name,chemin='data/connected.txt'):
+    """
+    Enlève un nouveau joueur dans les connectés
+    """
     f=open(chemin,'r')
     user=[]
     for ligne in f:

@@ -154,7 +154,7 @@ def connection():
     """
     Page de connexion
     """
-    return render_template('header_home.html')+render_template('connecter.html',)+render_template('footer.html')
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Se connecter')+render_template('connecter.html',)+render_template('footer.html')
 
 
 @app.route ('/chat.html')
@@ -165,7 +165,7 @@ def chat():
     l=read_chat()
     l.reverse()
     session['chat']=l
-    return render_template('header_home.html')+render_template('chat.html',)+render_template('footer.html')
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Chat')+render_template('chat.html',)+render_template('footer.html')
 
 
 
