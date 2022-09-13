@@ -253,6 +253,44 @@ def total_final(score):
 
 
 
+def read_connected(chemin='data/connected.txt'):
+    f=open(chemin,'r')
+    user=[]
+    for ligne in f:
+        user.append(ligne.strip())
+    return user
+
+def ajoute_connected(name,chemin='data/connected.txt'):
+    try:
+        enleve_connected(name)
+    except:
+        ()
+    f=open(chemin,'r')
+    user=[]
+    for ligne in f:
+        user.append(ligne.strip())
+    user.append(name)
+    f.close()
+    f=open(chemin,'w')
+    for name in user:
+        f.write(name+'\n')
+    f.close()
+    
+
+def enleve_connected(name,chemin='data/connected.txt'):
+    f=open(chemin,'r')
+    user=[]
+    for ligne in f:
+        user.append(ligne.strip())
+    f.close()
+    user.pop(user.index(name))
+    
+    f=open(chemin,'w')
+    for name in user:
+        f.write(name+'\n')
+    f.close()
+        
+
 def sans_doubles(dés):
     """
     Renvoie la liste sans double et trié (tri par dénombrement O(n) avec n=len(dés))

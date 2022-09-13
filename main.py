@@ -68,6 +68,7 @@ def index():
     """
     Page d'accueil du site
     """
+    session['connected']=read_connected()
     if 'user' not in session:
         session['user']=''
     if 'scores' not in session:
@@ -192,7 +193,9 @@ def deco():
     """
     Redirection qui déconnecte l'utilisateur
     """
+    enleve_connected(session['user'])
     session['user']=''
+
     return redirect('/')
     
 
@@ -485,6 +488,7 @@ def connect():
         try:
             if int(output)==int(get_hash(form_user)):
                 session['user']=form_user
+                ajoute_connected(form_user)
                 session['save_dico']=charger_games()
                 if session['user'] in session['save_dico']:
                     session['in_dico']=True
@@ -546,4 +550,4 @@ def connect():
 
 
 if __name__ == '__main__' :
-    app.run(debug = True)
+    app.run(debug=True)

@@ -11,7 +11,14 @@
           <div class="carousel-container">
             <div class="carousel-content container">
               <h2 class="animate__animated animate__fadeInDown">Yam's</h2>
-              <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}}</p>
+              <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}} <br>
+                {%if session['connected']!=[]%}
+                Utilisateurs en ligne : {%for name in session['connected'][0:-1]%}
+                {{name}} -
+                {%endfor%}
+                {{session['connected'][-1]}}
+                {%endif%}
+              </p>
             </div>
           </div>
         </div>
@@ -21,7 +28,14 @@
           <div class="carousel-container">
             <div class="carousel-content container">
               <h2 class="animate__animated animate__fadeInDown">Yam's</h2>
-              <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}}</p>
+              <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}} <br>
+                {%if session['connected']!=[]%}
+                Utilisateurs en ligne : {%for name in session['connected'][0:-1]%}
+                {{name}} -
+                {%endfor%}
+                {{session['connected'][-1]}}
+                {%endif%}
+              </p>
             </div>
           </div>
         </div>
@@ -31,7 +45,14 @@
           <div class="carousel-container">
             <div class="carousel-content container">
               <h2 class="animate__animated animate__fadeInDown">Yam's</h2>
-              <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}}</p>
+              <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}} <br>
+                {%if session['connected']!=[]%}
+                Utilisateurs en ligne : {%for name in session['connected'][0:-1]%}
+                {{name}} -
+                {%endfor%}
+                {{session['connected'][-1]}}
+                {%endif%}
+              </p>
             </div>
           </div>
         </div>
@@ -41,7 +62,14 @@
           <div class="carousel-container">
             <div class="carousel-content container">
               <h2 class="animate__animated animate__fadeInDown">Yam's</h2>
-              <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}}</p>
+              <p class="animate__animated animate__fadeInUp">Bienvenue sur notre site {{session.user}} <br>
+                {%if session['connected']!=[]%}
+                Utilisateurs en ligne : {%for name in session['connected'][0:-1]%}
+                {{name}} -
+                {%endfor%}
+                {{session['connected'][-1]}}
+                {%endif%}
+              </p>
             </div>
           </div>
         </div>
