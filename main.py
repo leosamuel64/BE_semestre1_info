@@ -157,6 +157,17 @@ def connection():
     return render_template('header_home.html')+render_template('connecter.html',)+render_template('footer.html')
 
 
+@app.route ('/chat.html')
+def chat():
+    """
+    Page du chat
+    """
+    l=read_chat()
+    l.reverse()
+    session['chat']=l
+    return render_template('header_home.html')+render_template('chat.html',)+render_template('footer.html')
+
+
 
 
 # ---------------------------------------------------------------------
@@ -539,6 +550,16 @@ def connect():
             return page
         return redirect('/connecter.html')
 
+
+@app.route ('/send_msg',methods = ['GET'])
+def send_msg():
+    """
+    Redirection qui modifie le mot de passe d'un utilisateur dans la base de données des comptes 
+    """
+    result=request.args
+    
+    ajoute_chat(session['user'],result['comment'])
+    return redirect('/chat.html')
 
 
 

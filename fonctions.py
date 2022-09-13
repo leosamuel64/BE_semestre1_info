@@ -1,6 +1,8 @@
 import sqlite3
 import os
 import pickle
+from time import gmtime, strftime
+
 
 
 
@@ -252,7 +254,36 @@ def total_final(score):
 
 
 
+def read_chat(chemin='data/chat.txt'):
+    f=open(chemin,'r')
+    chat=[]
+    for ligne in f:
+        time,user,msg=ligne.split('<,:,>')
+        chat.append((time.strip(),user.strip(),msg.strip()))
+    return chat
 
+
+def ajoute_chat(nom,message,chemin='data/chat.txt'):
+    """
+    strftime("%Y-%m-%d %H:%M:%S", gmtime())
+    """
+    f=open(chemin,'r')
+    chat=[]
+    for ligne in f:
+        time,user,msg=ligne.split('<,:,>')
+        chat.append((time,user,msg.strip()))
+    chat.append((strftime("%d-%m-%Y %H:%M", gmtime()),nom,message))
+    f.close()
+    f=open(chemin,'w')
+    for (time,user,msg) in chat:
+        f.write(time+'<,:,>'+user+'<,:,>'+msg+'\n')
+    f.close()
+    
+
+    
+
+    
+    
 def read_connected(chemin='data/connected.txt'):
     f=open(chemin,'r')
     user=[]
