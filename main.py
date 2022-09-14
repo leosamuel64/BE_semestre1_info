@@ -252,8 +252,8 @@ def charger_game_html():
     """
     dico=charger_games()
     session['scores'], session['figure_bool']=dico[session['user']]
-    session['lancer']=0
     session['fin']=False
+    session['des']=[random.randint(1,6) for _ in range(5)]
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
 
 
