@@ -141,6 +141,34 @@ def jouer_multi():
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Multijoueur')+render_template('jouer_multi.html',)+render_template('footer.html')
 
 
+@app.route ('/lan.html')
+def jouer_lan():
+    """
+    Page du jeu du mode multijoueur
+    """
+    if 'mutliplayer' not in session:
+        session['multiplayer']=False
+
+        
+        
+    if ('lancer' not in session) or (session['lancer']==NOMBRE_LANCER):
+        session['lancer']=0
+    if 'des' not in session:
+        l=[random.randint(1,6) for _ in range(5)]
+        session['des']=l
+        
+    session['projection']=[ [un(session['des']),deux(session['des']),trois(session['des']),quatre(session['des']),cinq(session['des']),six(session['des']),0,0,0],
+                            [superieur(session['des']),inferieur(session['des']),0],
+                            [carre(session['des']),full(session['des']),petite_suite(session['des']),grande_suite(session['des']),yams(session['des']),0,0]]
+    
+    dico=charger_games(chemin='data/lan.txt')
+    session['lan']=dico
+    session['multiplayer']=True
+        
+    
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Multijoueur')+render_template('lan.html',)+render_template('footer.html')
+
+
 @app.route ('/scores.html')
 def scores():
     """
@@ -205,6 +233,7 @@ def deco():
     Redirection qui déconnecte l'utilisateur
     """
     enleve_connected(session['user'])
+    session['multiplayer']=False
     session['user']=''
 
     return redirect('/')
@@ -257,6 +286,52 @@ def charger_game_html():
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
 
 
+@app.route ('/join_lan',methods = ['GET'])
+def join_lan():
+    session['multiplayer']=True
+    result=request.args
+    id_game = result['0']
+    
+    session['id_lan']=int(id_game)
+    session['fin']=False
+    return redirect('lan.html')
+
+
+@app.route ('/lance_lan',methods = ['GET'])
+def lance_lan():
+    session['multiplayer']=True
+    
+    dico=charger_games(chemin='data/lan.txt')
+    print(dico)
+    result=request.args
+    txt = result['0']
+    nom=txt.split(',')
+    
+    id_game=dico['last_id']+1
+    dico['last_id']=id_game
+    dico[id_game]= [0,
+                    nom,
+                    [[[0,0,0,0,0,0,0,0,0],
+                      [0,0,0],
+                      [0,0,0,0,0,0,0]],         [[0,0,0,0,0,0,0,0,0],
+                                                            [0,0,0],
+                                                            [0,0,0,0,0,0,0]]],
+                    [[[True,True,True,True,True,True],
+                     [True,True],
+                     [True,True,True,True,True]],       [[True,True,True,True,True,True],
+                                                         [True,True],
+                                                         [True,True,True,True,True]]],
+                    [random.randint(1,6) for _ in range(5)]
+                    ]
+
+    
+    session['id_lan']=id_game
+    session['fin']=False
+    with open('data/lan.txt', "wb") as fp:
+        pickle.dump(dico, fp)
+    return redirect('lan.html')
+
+
 @app.route ('/save_game',methods = ['GET'])
 def save_game_html():
     """
@@ -307,6 +382,24 @@ def lancer_multi():
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html')+render_template('footer.html')
 
 
+@app.route ('/lancer_lan',methods = ['GET'])
+def lancer_lan():
+    """
+    Redirection qui met à jour la liste des dés en fonction des dés selectionnés (mode multi)
+    """
+    result=request.args
+    session['lancer']+=1
+    for i in range(5):
+        if str(i) in result:
+            session['des'][i]=random.randint(1,6)
+            
+    session['projection']=[ [un(session['des']),deux(session['des']),trois(session['des']),quatre(session['des']),cinq(session['des']),six(session['des']),0,0,0],
+                            [superieur(session['des']),inferieur(session['des']),0],
+                            [carre(session['des']),full(session['des']),petite_suite(session['des']),grande_suite(session['des']),yams(session['des']),0,0]]
+    
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('lan.html')+render_template('footer.html')
+
+
 @app.route ('/reset',methods = ['GET'])
 def reset():
     """
@@ -353,6 +446,31 @@ def reset_mutli():
     
     
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer_multi.html')+render_template('footer.html')
+
+
+@app.route ('/reset_lan',methods = ['GET'])
+def reset_lan():
+    """
+    Redirection qui met la partie à zéro (mode multi)
+    """
+    session['des']=[random.randint(1,6) for _ in range(5)]
+    
+    session['scores']=[[0,0,0,0,0,0,0,0,0],
+                           [0,0,0],
+                           [0,0,0,0,0,0,0]]
+    session['figure_bool']=[[True,True,True,True,True,True],
+                                [True,True],
+                                [True,True,True,True,True]]
+    session['lancer']=0
+    session['fin']=False
+    session['multiplayer']=False
+    
+    session['projection']=[ [un(session['des']),deux(session['des']),trois(session['des']),quatre(session['des']),cinq(session['des']),six(session['des']),0,0,0],
+                            [superieur(session['des']),inferieur(session['des']),0],
+                            [carre(session['des']),full(session['des']),petite_suite(session['des']),grande_suite(session['des']),yams(session['des']),0,0]]
+    
+    
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('lan.html')+render_template('footer.html')
 
 
 @app.route ('/enregistrer',methods = ['GET'])
@@ -404,6 +522,56 @@ def maj_score():
     
           
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
+
+
+@app.route ('/enregistrer_lan',methods = ['GET'])
+def maj_score_lan():
+    """
+    Redirection qui met à jour le score après avoir mis une figure (mode solo)
+    """
+    dico=session['lan'][session['id_lan']]
+    tour = dico[0]%2
+    
+    session['scores']=dico[2][tour]
+    session['figure_bool']=dico[3][tour]
+           
+    result=request.args
+    if result!={}:
+        session['lancer']=0
+        point=DICO_FONCTIONS[result['figure']](session['des'])
+        x,y=DICO_PLACES[result['figure']]
+        session['scores'][x][y]=point
+        session['figure_bool'][x][y]=False
+        session['fin']=verif_fin(session['figure_bool'])
+        session['des']=[random.randint(1,6) for _ in range(5)]
+        
+        x,y=DICO_PLACES['sous_total']
+        session['scores'][x][y] = sous_total(session['scores'])
+        
+        x,y=DICO_PLACES['prime']
+        session['scores'][x][y] = prime(session['scores'])
+        
+        x,y=DICO_PLACES['total_1']
+        session['scores'][x][y] = total1(session['scores'])
+        
+        x,y=DICO_PLACES['total_2']
+        session['scores'][x][y] = total2(session['scores'])
+        
+        x,y=DICO_PLACES['total_3']
+        session['scores'][x][y] = total3(session['scores'])
+        
+        x,y=DICO_PLACES['total_final']
+        session['scores'][x][y] = total_final(session['scores'])
+        
+        dico[2][tour]=session['scores']
+        dico[3][tour]=session['figure_bool']
+        dico[0]+=1
+        session['lan']['id_lan']=dico
+        
+        with open('data/lan.txt', "wb") as fp:
+            pickle.dump(session['lan'], fp)
+         
+    return redirect('lan.html')
 
 
 @app.route ('/enregistrer_multi',methods = ['GET'])
@@ -571,4 +739,7 @@ def send_msg():
 
 
 if __name__ == '__main__' :
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0'
+            )
+    
