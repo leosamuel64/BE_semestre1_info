@@ -306,8 +306,6 @@ def lance_lan():
     result=request.args
     txt = result['0']
     nom=txt.split(',')
-    if len(nom)!=2:
-        redirect('/lan')
     
     id_game=dico['last_id']+1
     dico['last_id']=id_game
