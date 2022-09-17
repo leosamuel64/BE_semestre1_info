@@ -448,7 +448,7 @@ def charger_games(chemin="data/games.txt"):
     """
     Renvoie le dico des parties du fichier texte de sauvegarde
     """
-    with open("data/games.txt", "rb") as fp:   # Unpickling
+    with open(chemin, "rb") as fp:   # Unpickling
         b = pickle.load(fp)
     return b
 
