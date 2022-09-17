@@ -233,6 +233,7 @@ def deco():
     Redirection qui déconnecte l'utilisateur
     """
     enleve_connected(session['user'])
+    session['multiplayer']=False
     session['user']=''
 
     return redirect('/')
