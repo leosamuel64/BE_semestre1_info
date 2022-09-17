@@ -292,7 +292,7 @@ def join_lan():
     result=request.args
     id_game = result['0']
     
-    session['id_lan']=id_game
+    session['id_lan']=int(id_game)
     session['fin']=False
     return redirect('lan.html')
 
