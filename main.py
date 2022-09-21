@@ -208,6 +208,8 @@ def nv_compte():
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Nouveau compte')+render_template('nv_compte.html',)+render_template('footer.html')
 
 
+
+
 # ---------------------------------------------------------------------
 # ----------------------- ROUTAGES INTERACTIONS -----------------------
 # ---------------------------------------------------------------------
@@ -249,14 +251,11 @@ def deco():
     return redirect('/')
     
     
-
-
 @app.route ('/lance_multi',methods = ['GET'])
 def lance_multi():
     """
     Redirection qui lance une partie en multijoueur
     """
-    
     session['multiplayer']=True
     result=request.args
     txt = result['0']
@@ -335,7 +334,6 @@ def lance_lan():
                     [random.randint(1,6) for _ in range(5)]
                     ]
 
-    
     session['id_lan']=id_game
     session['fin']=False
     with open('data/lan.txt', "wb") as fp:
@@ -530,8 +528,7 @@ def maj_score():
         session['projection']=[ [un(session['des']),deux(session['des']),trois(session['des']),quatre(session['des']),cinq(session['des']),six(session['des']),0,0,0],
                             [superieur(session['des']),inferieur(session['des']),0],
                             [carre(session['des']),full(session['des']),petite_suite(session['des']),grande_suite(session['des']),yams(session['des']),0,0]]
-    
-          
+     
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
 
 
@@ -714,7 +711,6 @@ def connect():
         form_password=request.form['pwd']
         form_password_confirm=request.form['confirm_pwd']
         
-        
         if not existe_deja(form_user):
             ()
         else:
@@ -779,6 +775,7 @@ def send_msg():
 
 
 
+
 # ---------------------------------------------------------------------
 # ---------------------- EXECUTION DU SERVEUR WEB ---------------------
 # ---------------------------------------------------------------------
@@ -789,6 +786,3 @@ def send_msg():
 if __name__ == '__main__' :
     # app.run(debug=True)
     app.run(debug=True)
-    
-
-

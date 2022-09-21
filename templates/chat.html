@@ -1,39 +1,33 @@
 <main id="main">
-    <section class="breadcrumbs">
-      <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Chat</h2>
-          <ol>
-            <li>
-              <a href="/">Accueil</a>
-            </li>
-            <li>Chat</li>
-          </ol>
-        </div>
+  <section class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Chat</h2>
+        <ol>
+          <li>
+            <a href="/">Accueil</a>
+          </li>
+          <li>Chat</li>
+        </ol>
       </div>
-    </section>
-    <br>
-      <div class="container">
-        <div class="row">
-          <div class="col-5">
-            <form class="w-75 mx-auto pt-3 pb-3" action="/send_msg" method="GET">
-          <input class="form-control" type="text" name="comment" id="comment" placeholder="" autocomplete="off" required />
-                
-                
-                    
-                <button class="btn btn-outline-info mx-auto w-100" type="submit" name='action' value="connect">Envoyer</button>
-       
-              </form>
-            </div>
-          <div class="col-7">
-
-
-            {%for (time,name,msg) in session['chat'] %}
-           <b> {{time}} - {{name}} </b>: {{msg}} <br>
-           <hr>
-            {%endfor%}
-
-             </div>
-        </div>
-  
-  </main>
+    </div>
+  </section>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-5">
+        <form class="w-75 mx-auto pt-3 pb-3" action="/send_msg" method="GET">
+          <input class="form-control" type="text" name="comment" id="comment" placeholder="" autocomplete="off"
+            required />
+          <button class="btn btn-outline-info mx-auto w-100" type="submit" name='action'
+            value="connect">Envoyer</button>
+        </form>
+      </div>
+      <div class="col-7">
+        {%for (time,name,msg) in session['chat'] %}
+        <b> {{time}} - {{name}} </b>: {{msg}} <br>
+        <hr>
+        {%endfor%}
+      </div>
+    </div>
+</main>
