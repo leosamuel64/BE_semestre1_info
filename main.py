@@ -13,10 +13,19 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 
+
+
+# ------------------------------------------------------------------
 # ----------------------- VARIABLES GLOBALES -----------------------
+# ------------------------------------------------------------------
+
+
+
 
 NOM_DU_SITE="Yam's"
+
 NOMBRE_LANCER=2
+
 DICO_FONCTIONS={    'un':un,
                     'deux':deux,
                     'trois':trois,
@@ -149,10 +158,9 @@ def jouer_lan():
     if 'mutliplayer' not in session:
         session['multiplayer']=False
 
-        
-        
     if ('lancer' not in session) or (session['lancer']==NOMBRE_LANCER):
         session['lancer']=0
+        
     if 'des' not in session:
         l=[random.randint(1,6) for _ in range(5)]
         session['des']=l
@@ -165,7 +173,6 @@ def jouer_lan():
     session['lan']=dico
     session['multiplayer']=True
         
-    
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Multijoueur')+render_template('lan.html',)+render_template('footer.html')
 
 
@@ -196,6 +203,9 @@ def chat():
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Chat')+render_template('chat.html',)+render_template('footer.html')
 
 
+@app.route ('/nv_compte.html')
+def nv_compte():
+    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Nouveau compte')+render_template('nv_compte.html',)+render_template('footer.html')
 
 
 # ---------------------------------------------------------------------
@@ -238,6 +248,8 @@ def deco():
 
     return redirect('/')
     
+    
+
 
 @app.route ('/lance_multi',methods = ['GET'])
 def lance_multi():
@@ -302,15 +314,14 @@ def lance_lan():
     session['multiplayer']=True
     
     dico=charger_games(chemin='data/lan.txt')
-    print(dico)
     result=request.args
-    txt = result['0']
-    nom=txt.split(',')
+    j1 = result['0']
+    j2 = result['1']
     
     id_game=dico['last_id']+1
     dico['last_id']=id_game
     dico[id_game]= [0,
-                    nom,
+                    [j1,j2],
                     [[[0,0,0,0,0,0,0,0,0],
                       [0,0,0],
                       [0,0,0,0,0,0,0]],         [[0,0,0,0,0,0,0,0,0],
@@ -701,9 +712,11 @@ def connect():
     elif request.form['action'] == 'add':
         form_user=request.form['login']
         form_password=request.form['pwd']
-        print(existe_deja(form_user))
+        form_password_confirm=request.form['confirm_pwd']
+        
+        
         if not existe_deja(form_user):
-            add_user(form_user,form_password)
+            ()
         else:
             page = """
                     <html>
@@ -712,6 +725,41 @@ def connect():
                         </head>
                         <body>
                         L'utilisateur existe déjà. Redirection automatique dans 5 secondes
+                        </body>
+                    </html>
+                        """  
+            return page
+        if verif_mdp(form_password):
+            ()
+        else:
+            page = """
+                    <html>
+                        <head>
+                            <meta http-equiv="Refresh" content="5; url=/nv_compte.html" />
+                        </head>
+                        <body>
+                        Le mot de passe doit avoir au moins : <br>
+                        - Une majuscule <br>
+                        - Une minuscule <br>
+                        - Un chiffre <br>
+                        - Six caractères <br>
+                        Redirection automatique dans 5 secondes...
+                        </body>
+                    </html>
+                        """  
+            return page
+        
+        if form_password==form_password_confirm:
+            add_user(form_user,form_password)
+        else:
+            page = """
+                    <html>
+                        <head>
+                            <meta http-equiv="Refresh" content="5; url=/nv_compte.html" />
+                        </head>
+                        <body>
+                        La confirmation n'est pas valide <br>
+                        Redirection automatique dans 5 secondes...
                         </body>
                     </html>
                         """  
@@ -740,6 +788,7 @@ def send_msg():
 
 if __name__ == '__main__' :
     # app.run(debug=True)
-    app.run(debug=True,host='0.0.0.0'
-            )
+    app.run(debug=True)
     
+
+

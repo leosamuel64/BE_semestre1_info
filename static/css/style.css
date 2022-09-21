@@ -14,12 +14,23 @@ body {
 }
 
 a {
-  color: #fff
+  color: #8F1913
 ;
   text-decoration: none;
 }
 
 a:hover {
+  color: #ec6c66;
+  text-decoration: none;
+}
+
+#footer a {
+  color: #fff
+;
+  text-decoration: none;
+}
+
+#footer a:hover {
   color: #9eccf4;
   text-decoration: none;
 }
@@ -1037,7 +1048,7 @@ section {
 .portfolio .portfolio-wrap .portfolio-info a:hover {
   background: #8F1913
 ;
-  color: #fff;
+  color: rgb(81, 0, 255);
 }
 
 .portfolio .portfolio-wrap:hover {
@@ -1419,7 +1430,7 @@ section {
 #footer .footer-top .social-links a:hover {
   background: #8F1913
 ;
-  color: #fff;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
@@ -1466,7 +1477,7 @@ section {
 }
 
 #footer .footer-top .footer-links ul a:hover {
-  color: #9eccf4;
+  color: #000000;
 }
 
 #footer .footer-top .footer-newsletter form {

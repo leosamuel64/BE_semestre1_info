@@ -6,7 +6,6 @@ from time import gmtime, strftime
 
 
 
-
 # ---------------------------------------------------------------------
 # ----------------- FONCTIONS POUR COMPTER LES POINTS -----------------
 # ---------------------------------------------------------------------
@@ -23,7 +22,6 @@ def un(dés):
     for i in dés:
         if i==1:
             res+=1
-    print(dés,res)
     return res
 
 
@@ -36,7 +34,6 @@ def deux(dés):
     for i in dés:
         if i==2:
             res+=2
-    print(dés,res)
     return res
 
 
@@ -147,6 +144,7 @@ def petite_suite(dés):
                 res=False
     return res*45
 
+
 def grande_suite(dés):
     """
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
@@ -254,6 +252,45 @@ def total_final(score):
 
 
 
+
+def verif_mdp(password):
+    """
+    Vérifier que le mdp contient obligatoirement 8 caractère 
+    et une maj
+    """
+    def verif_cara(password):
+        verif=False
+        if len(password)>= 8:
+            verif=True
+        return verif
+ 
+    def verif_maj(password):
+        maj="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        verif=False
+        for lettre in password :
+            if lettre in maj:
+                verif=True
+        return verif
+ 
+    def verif_min(password):
+        min="abcdefghijklmnopqrstuvwxyz"
+        verif=False
+        for lettre in password :
+            if lettre in min:
+                verif=True
+        return verif
+ 
+    def verif_spe(password):
+        spe="'[@_!#$%^&*()<>?/\|}{~:]'"
+        verif=False
+        for letter in password:
+            if letter in spe:
+                verif=True
+        return verif
+ 
+    return verif_cara(password) and verif_min(password) and verif_maj(password) and verif_spe(password)
+
+
 def read_chat(chemin='data/chat.txt'):
     """
     Retourne le fichier chat dans un tableau
@@ -292,6 +329,7 @@ def read_connected(chemin='data/connected.txt'):
     for ligne in f:
         user.append(ligne.strip())
     return user
+
 
 def ajoute_connected(name,chemin='data/connected.txt'):
     """
@@ -373,6 +411,7 @@ def remove_user(login):
     connection.commit()
     connection.close()
     
+    
 def changer_password(login,password):
     """
     Change le mot de passe dans la base de données SQL
@@ -395,6 +434,7 @@ def changer_password(login,password):
     cursor = connection.execute(request)
     connection.commit()
     connection.close()
+    
       
 def existe_deja(login):
     """

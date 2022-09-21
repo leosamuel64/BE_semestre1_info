@@ -1,0 +1,4 @@
+<i class="fa-solid fa-jedi"></i>
+<i class="fa-solid fa-ghost"></i>
+<i class="fa-solid fa-robot"></i>
+<i class="fa-solid fa-person-snowboarding"></i>

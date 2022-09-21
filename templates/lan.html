@@ -23,16 +23,47 @@
     </div>
   
     {%if not session['multiplayer']%}
-    <form class="w-75 mx-auto pt-3 pb-3" action="/lance_lan" method="GET">
-      <input type="text" size="45" name="0" id="0" value="" placeholder="Séparez les deux noms par une virgule ','" />
+    <div class="container">
+      <div class="row justify-content-between align-items-center">
+        <div class="col-2">
+        
+        </div>
+        <div class="col-8">
+        
+          <div class="row">
+            <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+    <form class="w-75 mx-auto pt-3 pb-3" action="/lance_lan" method="GET" autocomplete="off">
+      <table class="table">
+        <tbody>
+        <tr>
+        <td class="text-center"><input type="text" name="0" id="0" value="" placeholder="Joueur 1" autocomplete="off" /></td>
+        <td class="text-center"><input type="text" name="1" id="1" value="" placeholder="Joueur 2" autocomplete="off" /></td>
+        </tr>
+        </tbody>
+        </table>
       <button class="btn btn-outline-danger mx-auto w-100" type="submit">Lancer le jeu</button>
     </form>
 
     <form class="w-75 mx-auto pt-3 pb-3" action="/join_lan" method="GET">
-        <input type="number" name="0" id="0" value="" placeholder="Code session" />
+      
+        <table class="table">
+          <tbody>
+          <tr>
+          <td class="text-center"><input type="number" name="0" id="0" value="" placeholder="Code session" autocomplete="off" /></td>
+          </tr>
+          </tbody>
+          </table>
         <button class="btn btn-outline-danger mx-auto w-100" type="submit">Rejoindre le jeu</button>
       </form>
+      </div>
+    </div>
+  </div>
 
+      <div class="col-2">
+        
+      </div>
+      </div>
+      </div>
     {%else%}
     <div class="container">
       <div class="row">
