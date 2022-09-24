@@ -74,7 +74,7 @@
           <a href="deco">Deconnexion</a>
 
           <li>
-            <a href="/option_compte.html"><i class="fa-solid fa-user"></i></a>
+            <a href="/option_compte.html">{%if 'photo' in session%}<i class="{{session['photo']}}"></i> {%else%}<i class="fa-solid fa-user"></i> {%endif%}</a>
 
           </li>
           {%endif%}

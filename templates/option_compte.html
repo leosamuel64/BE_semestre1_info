@@ -18,6 +18,21 @@
     </div>
   </section>
 
+
+  <form class="w-75 mx-auto pt-3 pb-3" action="/change_photo" method="GET">
+    <select class="form-control" name="photo" id="photo">
+      <option value="">--Choisir une photo-- </option>
+      <option value='fa-solid fa-jedi'>Jedi</option>
+      <option value='fa-solid fa-ghost'>Fantome</i></option>
+      <option value='fa-solid fa-robot'>Robot</i></option>
+      <option value='fa-solid fa-burger'>Burger</i></option>
+      <option value='fa-solid fa-person-snowboarding'>Snowboard</i></option>
+
+
+  </select>
+    <button class="btn btn-outline-danger mx-auto w-100" type="submit">Choisir cette photo</button>
+  </form>
+
   <form class="w-75 mx-auto pt-3 pb-3" action="/remove_user" method="GET">
     <button class="btn btn-outline-danger mx-auto w-100" type="submit">Supprimer le compte</button>
   </form>

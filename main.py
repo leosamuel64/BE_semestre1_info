@@ -224,7 +224,7 @@ def remove_user_db():
     """
     remove_user(session['user'])
     session['user']=''
-    return render_template('header_home.html')+render_template('index.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
+    return redirect('/')
 
 
 @app.route ('/change_password',methods = ['POST'])
@@ -236,8 +236,26 @@ def change_password():
     nv_mdp=result['pass']
     log=session["user"]
     changer_password(log,nv_mdp)
-    return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('index.html')+render_template('footer.html')
+    return redirect('/')
 
+
+@app.route ('/change_photo',methods = ['GET'])
+def change_photo():
+    result=request.args
+    session['photo']=result['photo']
+    f=open('data/photos.txt','r')
+    photo={}
+    for ligne in f:
+        nom,image=ligne.strip().split(';')
+        photo[nom]=image
+    photo[session['user']]=result['photo']
+    f.close()
+    f=open('data/photos.txt','w')
+    for clé in photo.keys():
+        f.write(clé+';'+photo[clé]+'\n')
+    f.close()
+    return redirect('/')
+    
 
 @app.route ('/deco')
 def deco():
@@ -681,6 +699,15 @@ def connect():
         try:
             if int(output)==int(get_hash(form_user)):
                 session['user']=form_user
+                f=open('data/photos.txt','r')    
+                photo={}
+                for ligne in f:
+                    nom,image=ligne.strip().split(';')
+                    photo[nom]=image
+                if form_user in photo:
+                    session['photo']=photo[form_user]
+                else:
+                    session.pop('photo')
                 ajoute_connected(form_user)
                 session['save_dico']=charger_games()
                 if session['user'] in session['save_dico']:

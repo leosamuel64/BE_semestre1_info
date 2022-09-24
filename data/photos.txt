@@ -1,0 +1,3 @@
+admin;fa-solid fa-ghost
+test;fa-solid fa-ghost
+Léo;fa-solid fa-burger
