@@ -452,7 +452,6 @@ def reset():
     
     session['lancer']=0
     session['fin']=False
-    
     return render_template('header_home.html',page_name=NOM_DU_SITE+' - Jouer')+render_template('jouer.html')+render_template('footer.html')
 
 

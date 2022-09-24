@@ -139,7 +139,7 @@ def petite_suite(dés):
         return 0
     else:
         res_temp=[True,True]
-        for k in range(0,2):
+        for k in range(0,2 if len(sans_doubles_liste)==5 else 1):
             for i in range(0,3):
                 if sans_doubles_liste[i+k]!=sans_doubles_liste[i+k+1]-1:
                     res_temp[k]=False
