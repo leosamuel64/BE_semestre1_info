@@ -134,15 +134,16 @@ def petite_suite(dés):
     Entrée : dés - Liste des numéro des dés ([1,2,3,2,3])
     Sortie : point - Entier qui indique le nombre de point associé à la liste des dés
     """
-    res=True
     sans_doubles_liste=sans_doubles(dés)
     if len(sans_doubles_liste)<4:
         return 0
     else:
-        for i in range(0,3):
-            if sans_doubles_liste[i]!=sans_doubles_liste[i+1]-1:
-                res=False
-    return res*45
+        res_temp=[True,True]
+        for k in range(0,2):
+            for i in range(0,3):
+                if sans_doubles_liste[i+k]!=sans_doubles_liste[i+k+1]-1:
+                    res_temp[k]=False
+    return (res_temp[0] or res_temp[1]) *45
 
 
 def grande_suite(dés):
@@ -255,16 +256,22 @@ def total_final(score):
 
 def verif_mdp(password):
     """
-    Vérifier que le mdp contient obligatoirement 8 caractère 
-    et une maj
+    Indique si password contient  8 caractères, 
+    une majuscule, une minuscule et un caractère special
     """
     def verif_cara(password):
+        """
+        indique si password a au moins 8 caractères
+        """
         verif=False
         if len(password)>= 8:
             verif=True
         return verif
  
     def verif_maj(password):
+        """
+        Indique si password à au moins une majuscule
+        """
         maj="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         verif=False
         for lettre in password :
@@ -273,6 +280,9 @@ def verif_mdp(password):
         return verif
  
     def verif_min(password):
+        """
+        Indique si password à au moins une minuscule
+        """
         min="abcdefghijklmnopqrstuvwxyz"
         verif=False
         for lettre in password :
@@ -281,13 +291,16 @@ def verif_mdp(password):
         return verif
  
     def verif_spe(password):
+        """
+        Indique si password à au moins un caractère special
+        """
         spe="'[@_!#$%^&*()<>?/\|}{~:]'"
         verif=False
         for letter in password:
             if letter in spe:
                 verif=True
         return verif
- 
+    
     return verif_cara(password) and verif_min(password) and verif_maj(password) and verif_spe(password)
 
 

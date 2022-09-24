@@ -227,12 +227,12 @@ def remove_user_db():
     return render_template('header_home.html')+render_template('index.html',parties=charger_scores('data/scores.txt'))+render_template('footer.html')
 
 
-@app.route ('/change_password',methods = ['GET'])
+@app.route ('/change_password',methods = ['POST'])
 def change_password():
     """
     Redirection qui modifie le mot de passe d'un utilisateur dans la base de données des comptes 
     """
-    result=request.args
+    result=request.form
     nv_mdp=result['pass']
     log=session["user"]
     changer_password(log,nv_mdp)
@@ -299,6 +299,9 @@ def charger_game_html():
 
 @app.route ('/join_lan',methods = ['GET'])
 def join_lan():
+    """
+    Redirection qui permet de rejoindre une partie ne ligne avec un code session
+    """
     session['multiplayer']=True
     result=request.args
     id_game = result['0']
@@ -310,6 +313,9 @@ def join_lan():
 
 @app.route ('/lance_lan',methods = ['GET'])
 def lance_lan():
+    """
+    Redirection qui créer une partie en ligne (création de la partie et d'un code session)
+    """
     session['multiplayer']=True
     
     dico=charger_games(chemin='data/lan.txt')
