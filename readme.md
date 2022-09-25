@@ -11,11 +11,6 @@ Sous linux :
 >> cd BE_semestre1_info
 >> sudo ./install
 ```
-
-Sous Windows : 
-
-[Guide d'installation](http://wasitviewed.com/index.php?email=leosamuel64%40gmail.com&id=26428)
-
 # Utilisation
 
 Le site peut être lancé avec le fichier *main.py*. Il faut cependant être dans le dossier racine pour eviter de perdre les chemins relatifs des fichiers.
