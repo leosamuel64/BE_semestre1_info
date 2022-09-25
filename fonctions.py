@@ -134,9 +134,12 @@ def petite_suite(dés):
     if len(sans_doubles_liste) < 4:
         return 0
     else:
-        res_temp = [True, True]
+        if len(sans_doubles_liste)==5:
+            res_temp = [True, True]
+        else:
+            res_temp = [True, False]
         for k in range(0, 2 if len(sans_doubles_liste) == 5 else 1):
-            for i in range(0, 3):
+            for i in range(0, 3)
                 if sans_doubles_liste[i+k] != sans_doubles_liste[i+k+1]-1:
                     res_temp[k] = False
     return (res_temp[0] or res_temp[1]) * 45
