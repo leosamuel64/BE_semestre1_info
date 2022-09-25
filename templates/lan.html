@@ -1,290 +1,314 @@
 <main id="main">
-    <!-- ======= Breadcrumbs Section ======= -->
-    <section class="breadcrumbs">
-      <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>
-          </h2>
-          <ol>
-            <li>
-              <a href="/">Accueil</a>
-            </li>
-            <li>Jouer </li>
-          </ol>
+  <!-- ======= Breadcrumbs Section ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>
+        </h2>
+        <ol>
+          <li>
+            <a href="/">Accueil</a>
+          </li>
+          <li>Jouer </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <br>
+    <h3>Jouer en ligne {%if session['multiplayer']%} : Tour de
+      {{session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]}} | code session :
+      {{session['id_lan']}}
+
+      {%endif%}</h3>
+
+  </div>
+
+  {%if not session['multiplayer']%}
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-2">
+
+      </div>
+      <div class="col-8">
+
+        <div class="row">
+          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+            <form class="w-75 mx-auto pt-3 pb-3" action="/lance_lan" method="GET" autocomplete="off">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td class="text-center"><input type="text" name="0" id="0" value="" placeholder="Joueur 1"
+                        autocomplete="off" /></td>
+                    <td class="text-center"><input type="text" name="1" id="1" value="" placeholder="Joueur 2"
+                        autocomplete="off" /></td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="btn btn-outline-danger mx-auto w-100" type="submit">Lancer le jeu</button>
+            </form>
+
+            <form class="w-75 mx-auto pt-3 pb-3" action="/join_lan" method="GET">
+
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td class="text-center"><input type="number" name="0" id="0" value="" placeholder="Code session"
+                        autocomplete="off" /></td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="btn btn-outline-danger mx-auto w-100" type="submit">Rejoindre le jeu</button>
+            </form>
+          </div>
         </div>
       </div>
-    </section>
-    <div class="container">
-      <br>
-  <h3>Jouer en ligne  {%if session['multiplayer']%} : Tour de {{session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]}} | code session : {{session['id_lan']}}
-    
-    {%endif%}</h3>
-      
-    </div>
-  
-    {%if not session['multiplayer']%}
-    <div class="container">
-      <div class="row justify-content-between align-items-center">
-        <div class="col-2">
-        
-        </div>
-        <div class="col-8">
-        
-          <div class="row">
-            <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
-    <form class="w-75 mx-auto pt-3 pb-3" action="/lance_lan" method="GET" autocomplete="off">
-      <table class="table">
-        <tbody>
-        <tr>
-        <td class="text-center"><input type="text" name="0" id="0" value="" placeholder="Joueur 1" autocomplete="off" /></td>
-        <td class="text-center"><input type="text" name="1" id="1" value="" placeholder="Joueur 2" autocomplete="off" /></td>
-        </tr>
-        </tbody>
-        </table>
-      <button class="btn btn-outline-danger mx-auto w-100" type="submit">Lancer le jeu</button>
-    </form>
 
-    <form class="w-75 mx-auto pt-3 pb-3" action="/join_lan" method="GET">
-      
-        <table class="table">
+      <div class="col-2">
+
+      </div>
+    </div>
+  </div>
+  {%else%}
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <table class="table text=centered mx-auto w-100">
           <tbody>
-          <tr>
-          <td class="text-center"><input type="number" name="0" id="0" value="" placeholder="Code session" autocomplete="off" /></td>
-          </tr>
+            <tr>
+              <td>Dé 1</td>
+              <td>Dé 2</td>
+              <td>Dé 3</td>
+              <td>Dé 4</td>
+              <td>Dé 5</td>
+            </tr>
+            <tr>
+              <img src="" alt="">
+              <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][0]]}} fa-5x "
+                  style="color:#8F1913"></i></td>
+              <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][1]]}} fa-5x"
+                  style="color:#8F1913"></i></td>
+              <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][2]]}} fa-5x"
+                  style="color:#8F1913"></i></td>
+              <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][3]]}} fa-5x"
+                  style="color:#8F1913"></i></td>
+              <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][4]]}} fa-5x"
+                  style="color:#8F1913"></i></td>
+            </tr>
+            <tr>
+              <form class="w-75 mx-auto pt-3 pb-3" action="/lancer_lan" method="GET">
+
+                <td><input type="checkbox" name="0" id="0" value="0" /></td>
+                <td><input type="checkbox" name="1" id="1" value="1" /></td>
+                <td><input type="checkbox" name="2" id="2" value="2" /></td>
+                <td><input type="checkbox" name="3" id="3" value="3" /></td>
+                <td><input type="checkbox" name="4" id="4" value="4" /></td>
+
+            </tr>
           </tbody>
+        </table>
+        {%if not session['fin']%}
+
+        {%if session['lancer']<2 %} <button class="btn btn-outline-danger mx-auto w-100" type="submit">Lancer</button>
+          {%else%}
+          <button class="btn btn-outline-danger mx-auto w-100" type="submit" disabled="disabled">Choisisez une
+            figure</button>
+
+          {%endif%}
+          {%else%}
+          <button class="btn btn-outline-danger mx-auto w-100" type="submit" disabled="disabled">Fin de partie</button>
+
+          {%endif%}
+
+          </form>
+
+          <form class="w-75 mx-auto pt-3 pb-3" action="/reset_lan" method="GET">
+            <button class="btn btn-outline-danger mx-auto w-100" type="submit">Nouvelle partie</button>
+          </form>
+      </div>
+      <div class="col-4">
+        <form class="w-75 mx-auto pt-3 pb-3" action="/enregistrer_lan" method="GET">
+          <table class="table text=centered mx-auto w-100">
+            <tbody>
+              <tr>
+                <td></td>
+                <td><b>Figures</b></td>
+                <td><b>{{session['lan'][session['id_lan']][1][0]}}</b></td>
+                <td><b>{{session['lan'][session['id_lan']][1][1]}}</b></td>
+              </tr>
+              <tr>
+                <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][0][0] and
+                  session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input
+                    type="radio" name="figure" id="un" value="un" />{%endif%}
+                </td>
+                <td>As</td>
+                <td>{{session['lan'][session['id_lan']][2][0][0][0]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][0][0]}}</td>
+
+              </tr>
+              <tr>
+                <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][0][1] and
+                  session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input
+                    type="radio" name="figure" id="deux" value="deux" />{%endif%}</td>
+
+                <td>Deux</td>
+                <td>{{session['lan'][session['id_lan']][2][0][0][1]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][0][1]}}</td>
+              </tr>
+              <tr>
+                <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][0][2] and
+                  session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input
+                    type="radio" name="figure" id="trois" value="trois" />{%endif%}</td>
+
+                <td>Trois</td>
+                <td>{{session['lan'][session['id_lan']][2][0][0][2]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][0][2]}}</td>
+              </tr>
+              <tr>
+                <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][0][3] and
+                  session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input
+                    type="radio" name="figure" id="quatre" value="quatre" />{%endif%}</td>
+
+                <td>Quatre</td>
+                <td>{{session['lan'][session['id_lan']][2][0][0][3]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][0][3]}}</td>
+              </tr>
+              <tr>
+                <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][0][4] and
+                  session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input
+                    type="radio" name="figure" id="cinq" value="cinq" />{%endif%}</td>
+
+                <td>Cinq</td>
+                <td>{{session['lan'][session['id_lan']][2][0][0][4]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][0][4]}}</td>
+              </tr>
+              <tr>
+                <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][0][5] and
+                  session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input
+                    type="radio" name="figure" id="six" value="six" />{%endif%}</td>
+
+                <td>Six</td>
+                <td>{{session['lan'][session['id_lan']][2][0][0][5]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][0][5]}}</td>
+              </tr>
+              <tr>
+                <td><i class="fa-solid fa-plus"></i></td>
+
+                <td><b>Sous total</b></td>
+                <td>{{session['lan'][session['id_lan']][2][0][0][6]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][0][6]}}</td>
+              </tr>
+              <tr>
+                <td><i class="fa-solid fa-plus"></i></td>
+
+                <td><b>Prime</b></td>
+                <td>{{session['lan'][session['id_lan']][2][0][0][7]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][0][7]}}</td>
+              </tr>
+              <tr>
+                <td><i class="fa-solid fa-arrow-right"></i></td>
+
+                <td><b>Total I</b></td>
+                <td>{{session['lan'][session['id_lan']][2][0][0][8]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][0][8]}}</td>
+              </tr>
+              <tr>
+                <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][1][0] and
+                  session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input
+                    type="radio" name="figure" id="sup" value="sup" />{%endif%}</td>
+
+                <td>Supérieur</td>
+                <td>{{session['lan'][session['id_lan']][2][0][1][0]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][1][0]}}</td>
+              </tr>
+              <tr>
+                <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][1][1] and
+                  session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input
+                    type="radio" name="figure" id="inf" value="inf" />{%endif%}</td>
+
+                <td>Inférieur</td>
+                <td>{{session['lan'][session['id_lan']][2][0][1][1]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][1][1]}}</td>
+              </tr>
+              <tr>
+                <td><i class="fa-solid fa-arrow-right"></i></td>
+
+                <td><b>Total II</b></td>
+                <td>{{session['lan'][session['id_lan']][2][0][1][2]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][1][2]}}</td>
+              </tr>
+              <tr>
+                <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][2][0] and
+                  session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input
+                    type="radio" name="figure" id="carre" value="carre" />{%endif%}</td>
+
+                <td>Carré</td>
+                <td>{{session['lan'][session['id_lan']][2][0][2][0]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][2][0]}}</td>
+              </tr>
+              <tr>
+                <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][2][1] and
+                  session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input
+                    type="radio" name="figure" id="full" value="full" />{%endif%}</td>
+
+                <td>Full</td>
+                <td>{{session['lan'][session['id_lan']][2][0][2][1]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][2][1]}}</td>
+              </tr>
+              <tr>
+                <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][2][2] and
+                  session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input
+                    type="radio" name="figure" id="petite" value="petite" />{%endif%}</td>
+
+                <td>Petite Suite</td>
+                <td>{{session['lan'][session['id_lan']][2][0][2][2]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][2][2]}}</td>
+              </tr>
+              <tr>
+                <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][2][3] and
+                  session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input
+                    type="radio" name="figure" id="grande" value="grande" />{%endif%}</td>
+
+                <td>Grande Suite</td>
+                <td>{{session['lan'][session['id_lan']][2][0][2][3]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][2][3]}}</td>
+              </tr>
+              <tr>
+                <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][2][4] and
+                  session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input
+                    type="radio" name="figure" id="yams" value="yams" />{%endif%}</td>
+
+                <td>Yam's</td>
+                <td>{{session['lan'][session['id_lan']][2][0][2][4]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][2][4]}}</td>
+              </tr>
+              <tr>
+                <td><i class="fa-solid fa-arrow-right"></i></td>
+
+                <td><b>Total III</b></td>
+                <td>{{session['lan'][session['id_lan']][2][0][2][5]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][2][5]}}</td>
+              </tr>
+              <tr>
+                <td><i class="fa-solid fa-arrow-right"></i></td>
+
+                <td><b>Total Final</b></td>
+                <td>{{session['lan'][session['id_lan']][2][0][2][6]}}</td>
+                <td>{{session['lan'][session['id_lan']][2][1][2][6]}}</td>
+              </tr>
+            </tbody>
           </table>
-        <button class="btn btn-outline-danger mx-auto w-100" type="submit">Rejoindre le jeu</button>
-      </form>
+
+          {%if not session['fin']%}
+
+          <button class="btn btn-outline-danger mx-auto w-100" type="submit">Enregistrer</button>
+          {%endif%}
       </div>
     </div>
   </div>
 
-      <div class="col-2">
-        
-      </div>
-      </div>
-      </div>
-    {%else%}
-    <div class="container">
-      <div class="row">
-        <div class="col-8">
-          <table class="table text=centered mx-auto w-100">
-            <tbody>
-              <tr>
-                <td>Dé 1</td>
-                <td>Dé 2</td>
-                <td>Dé 3</td>
-                <td>Dé 4</td>
-                <td>Dé 5</td>
-              </tr>
-              <tr>
-                <img src="" alt="">
-                <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][0]]}} fa-5x " style="color:#8F1913"></i></td>
-                <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][1]]}} fa-5x" style="color:#8F1913"></i></td>
-                <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][2]]}} fa-5x" style="color:#8F1913"></i></td>
-                <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][3]]}} fa-5x" style="color:#8F1913"></i></td>
-                <td><i class="fa-solid fa-dice-{{session['dice_img'][session['des'][4]]}} fa-5x" style="color:#8F1913"></i></td>
-              </tr>
-              <tr>
-                <form class="w-75 mx-auto pt-3 pb-3" action="/lancer_lan" method="GET">
-  
-                  <td><input type="checkbox" name="0" id="0" value="0" /></td>
-                  <td><input type="checkbox" name="1" id="1" value="1" /></td>
-                  <td><input type="checkbox" name="2" id="2" value="2" /></td>
-                  <td><input type="checkbox" name="3" id="3" value="3" /></td>
-                  <td><input type="checkbox" name="4" id="4" value="4" /></td>
-  
-              </tr>
-            </tbody>
-          </table>
-          {%if not session['fin']%}
-  
-          {%if session['lancer']<2 %} <button class="btn btn-outline-danger mx-auto w-100" type="submit">Lancer</button>
-            {%else%}
-            <button class="btn btn-outline-danger mx-auto w-100" type="submit" disabled="disabled">Choisisez une
-              figure</button>
-  
-            {%endif%}
-            {%else%}
-            <button class="btn btn-outline-danger mx-auto w-100" type="submit" disabled="disabled">Fin de partie</button>
-  
-            {%endif%}
-  
-            </form>
-  
-            <form class="w-75 mx-auto pt-3 pb-3" action="/reset_lan" method="GET">
-              <button class="btn btn-outline-danger mx-auto w-100" type="submit">Nouvelle partie</button>
-            </form>
-        </div>
-        <div class="col-4">
-          <form class="w-75 mx-auto pt-3 pb-3" action="/enregistrer_lan" method="GET">
-            <table class="table text=centered mx-auto w-100">
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td><b>Figures</b></td>
-                  <td><b>{{session['lan'][session['id_lan']][1][0]}}</b></td>
-                  <td><b>{{session['lan'][session['id_lan']][1][1]}}</b></td>
-                </tr>
-                <tr>
-                  <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][0][0] and session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input type="radio" name="figure" id="un" value="un" />{%endif%}
-                  </td>
-                  <td>As</td>
-                  <td>{{session['lan'][session['id_lan']][2][0][0][0]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][0][0]}}</td>
-                  
-                </tr>
-                <tr>
-                  <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][0][1] and session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input type="radio" name="figure" id="deux"
-                      value="deux" />{%endif%}</td>
-  
-                  <td>Deux</td>
-                  <td>{{session['lan'][session['id_lan']][2][0][0][1]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][0][1]}}</td>
-                </tr>
-                <tr>
-                  <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][0][2] and session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input type="radio" name="figure" id="trois"
-                      value="trois" />{%endif%}</td>
-  
-                  <td>Trois</td>
-                  <td>{{session['lan'][session['id_lan']][2][0][0][2]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][0][2]}}</td>
-                </tr>
-                <tr>
-                  <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][0][3] and session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input type="radio" name="figure" id="quatre"
-                      value="quatre" />{%endif%}</td>
-  
-                  <td>Quatre</td>
-                  <td>{{session['lan'][session['id_lan']][2][0][0][3]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][0][3]}}</td>
-                </tr>
-                <tr>
-                  <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][0][4] and session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input type="radio" name="figure" id="cinq"
-                      value="cinq" />{%endif%}</td>
-  
-                  <td>Cinq</td>
-                  <td>{{session['lan'][session['id_lan']][2][0][0][4]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][0][4]}}</td>
-                </tr>
-                <tr>
-                  <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][0][5] and session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input type="radio" name="figure" id="six"
-                      value="six" />{%endif%}</td>
-  
-                  <td>Six</td>
-                  <td>{{session['lan'][session['id_lan']][2][0][0][5]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][0][5]}}</td>
-                </tr>
-                <tr>
-                  <td><i class="fa-solid fa-plus"></i></td>
-  
-                  <td><b>Sous total</b></td>
-                  <td>{{session['lan'][session['id_lan']][2][0][0][6]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][0][6]}}</td>
-                </tr>
-                <tr>
-                  <td><i class="fa-solid fa-plus"></i></td>
-  
-                  <td><b>Prime</b></td>
-                  <td>{{session['lan'][session['id_lan']][2][0][0][7]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][0][7]}}</td>
-                </tr>
-                <tr>
-                  <td><i class="fa-solid fa-arrow-right"></i></td>
-  
-                  <td><b>Total I</b></td>
-                  <td>{{session['lan'][session['id_lan']][2][0][0][8]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][0][8]}}</td>
-                </tr>
-                <tr>
-                  <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][1][0] and session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input type="radio" name="figure" id="sup"
-                      value="sup" />{%endif%}</td>
-  
-                  <td>Supérieur</td>
-                  <td>{{session['lan'][session['id_lan']][2][0][1][0]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][1][0]}}</td>
-                </tr>
-                <tr>
-                  <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][1][1] and session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input type="radio" name="figure" id="inf"
-                      value="inf" />{%endif%}</td>
-  
-                  <td>Inférieur</td>
-                  <td>{{session['lan'][session['id_lan']][2][0][1][1]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][1][1]}}</td>
-                </tr>
-                <tr>
-                  <td><i class="fa-solid fa-arrow-right"></i></td>
-  
-                  <td><b>Total II</b></td>
-                  <td>{{session['lan'][session['id_lan']][2][0][1][2]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][1][2]}}</td>
-                </tr>
-                <tr>
-                  <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][2][0] and session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input type="radio" name="figure" id="carre"
-                      value="carre" />{%endif%}</td>
-  
-                  <td>Carré</td>
-                  <td>{{session['lan'][session['id_lan']][2][0][2][0]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][2][0]}}</td>
-                </tr>
-                <tr>
-                  <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][2][1] and session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input type="radio" name="figure" id="full"
-                      value="full" />{%endif%}</td>
-  
-                  <td>Full</td>
-                  <td>{{session['lan'][session['id_lan']][2][0][2][1]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][2][1]}}</td>
-                </tr>
-                <tr>
-                  <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][2][2] and session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input type="radio" name="figure" id="petite"
-                      value="petite" />{%endif%}</td>
-  
-                  <td>Petite Suite</td>
-                  <td>{{session['lan'][session['id_lan']][2][0][2][2]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][2][2]}}</td>
-                </tr>
-                <tr>
-                  <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][2][3] and session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input type="radio" name="figure" id="grande"
-                      value="grande" />{%endif%}</td>
-  
-                  <td>Grande Suite</td>
-                  <td>{{session['lan'][session['id_lan']][2][0][2][3]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][2][3]}}</td>
-                </tr>
-                <tr>
-                  <td>{%if session['lan'][session['id_lan']][3][session['lan'][session['id_lan']][0]%2][2][4] and session['lan'][session['id_lan']][1][session['lan'][session['id_lan']][0]%2]==session['user'] %}<input type="radio" name="figure" id="yams"
-                      value="yams" />{%endif%}</td>
-  
-                  <td>Yam's</td>
-                  <td>{{session['lan'][session['id_lan']][2][0][2][4]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][2][4]}}</td>
-                </tr>
-                <tr>
-                  <td><i class="fa-solid fa-arrow-right"></i></td>
-  
-                  <td><b>Total III</b></td>
-                  <td>{{session['lan'][session['id_lan']][2][0][2][5]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][2][5]}}</td>
-                </tr>
-                <tr>
-                  <td><i class="fa-solid fa-arrow-right"></i></td>
-  
-                  <td><b>Total Final</b></td>
-                  <td>{{session['lan'][session['id_lan']][2][0][2][6]}}</td>
-                  <td>{{session['lan'][session['id_lan']][2][1][2][6]}}</td>
-                </tr>
-              </tbody>
-            </table>
-  
-            {%if not session['fin']%}
-  
-            <button class="btn btn-outline-danger mx-auto w-100" type="submit">Enregistrer</button>
-            {%endif%}
-        </div>
-      </div>
-    </div>
-  
-    </form>
-  
-    {%endif%}
-  
-  </main>
+  </form>
+
+  {%endif%}
+
+</main>

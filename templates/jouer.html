@@ -51,14 +51,14 @@
           </tbody>
         </table>
         {%if not session['fin']%}
-          {%if session['lancer']<2 %} <button class="btn btn-outline-danger mx-auto w-100" type="submit">Lancer</button>
+        {%if session['lancer']<2 %} <button class="btn btn-outline-danger mx-auto w-100" type="submit">Lancer</button>
           {%else%}
           <button class="btn btn-outline-danger mx-auto w-100" type="submit" disabled="disabled">Choisisez une
             figure</button>
           {%endif%}
-        {%else%}
+          {%else%}
           <button class="btn btn-outline-danger mx-auto w-100" type="submit" disabled="disabled">Fin de partie</button>
-        {%endif%}
+          {%endif%}
 
           </form>
           <form class="w-75 mx-auto pt-3 pb-3" action="/reset" method="GET">
@@ -80,7 +80,7 @@
                 sauver : {{2-session['lancer']}} lancer à réaliser </button>
             </form>
 
-          {%endif%}
+            {%endif%}
 
             {%if session['in_dico']%}
             <form class="w-75 mx-auto pt-3 pb-3" action="/charger_game" method="GET">
@@ -247,7 +247,7 @@
           class="fa-solid fa-triangle-exclamation fa-2x"></i>
       </div>
       <div class="col-4">
-        
+
       </div>
     </div>
   </div>
