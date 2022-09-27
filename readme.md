@@ -9,7 +9,7 @@ Sous linux :
 ```
 >> git clone https://github.com/leosamuel64/BE_semestre1_info
 >> cd BE_semestre1_info
->> sudo ./install
+>> sudo ./install.sh
 ```
 # Utilisation
 

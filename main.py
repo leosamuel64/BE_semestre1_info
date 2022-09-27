@@ -292,7 +292,7 @@ def lance_multi():
                               inferieur(session['des']), 0],
                              [carre(session['des']), full(session['des']), petite_suite(session['des']), grande_suite(session['des']), yams(session['des']), 0, 0]]
 
-    return render_template('header_home.html', page_name=NOM_DU_SITE+' - Solo')+render_template('jouer_multi.html',)+render_template('footer.html')
+    return render_template('header_home.html', page_name=NOM_DU_SITE+' - Local')+render_template('jouer_multi.html',)+render_template('footer.html')
 
 
 @app.route('/charger_game', methods=['GET'])
